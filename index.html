@@ -436,6 +436,9 @@
   <img src="https://github.com/helloitssup/helloitssup.github.io/blob/main/photo_2025-05-07_13-25-40.jpg?raw=true"
        alt="Аватарка Vitaly Dedyukhin"
        style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+            .avatar-wrapper {
+            margin-left: 2rem;
+        }
         <div class="container">
                 <p class="hero-subtitle fade-in">Привет, меня зовут</p>
                 <h1 class="hero-title fade-in delay-1">Виталий Дедюхин.</h1>
@@ -645,10 +648,31 @@
         </div>
     </section>
     <!-- Кнопка Telegram -->
+ .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0088cc;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .telegram-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
   <a href="https://t.me/@sup_xz" 
      target="_blank"
-     style="display: inline-flex; align-items: center; gap: 8px; background-color: #0088cc; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 20px; height: 20px;" />
+      
     Связаться в Telegram
   </a>
     
