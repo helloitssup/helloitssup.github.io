@@ -1,712 +1,215 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO метатеги -->
-<meta name="description" content="Портфолио маркетолога с кейсами по трафику, воронкам и креативам. Опыт 5+ лет. ЦА — HR и Head of Marketing. Ищу позицию Senior Marketer.">
-<meta name="keywords" content="маркетолог, маркетинг, рост, digital маркетинг, senior marketer, портфолио маркетолога, HR, Head of Marketing">
-<meta name="author" content="Vitaly Dedyukhin">
-<meta name="robots" content="index, follow">
-
-<!-- Open Graph для социальных сетей -->
-<meta property="og:title" content="Портфолио Senior-маркетолога | Vitaly Dedyukhin" />
-<meta property="og:description" content="Опыт 5+ лет в digital маркетинге. Кейсы, рост, воронки. ЦА — HR и Head of Marketing." />
-<meta property="og:image" content="https://github.com/helloitssup/helloitssup.github.io/blob/main/photo_2025-05-07_13-25-40.jpg?raw=true" />
-<meta property="og:url" content="https://helloitssup.github.io/" />
-<meta property="og:type" content="website" />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G3QHW8F0W6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G3QHW8F0W6');
-</script>
-    <script src="https://cdn.eu.amplitude.com/script/62f18afcd4a86f2eabc3c0736b339462.js"></script><script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('62f18afcd4a86f2eabc3c0736b339462', {"fetchRemoteConfig":true,"serverZone":"EU","autocapture":true});</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Виталий Дедюхин - Маркетолог</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0a192f;
-            --secondary: #3a506b;
-            --accent: #64ffda;
-            --text: #e6f1ff;
-            --text-secondary: #8892b0;
-            --background: #0a192f;
-            --card-bg: #112240;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        
-        body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            background-color: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-        
-        .hero {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 800px;
-        }
-        
-        .hero-subtitle {
-            color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-        
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.1;
-        }
-        
-        .hero-description {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            max-width: 540px;
-        }
-        
-        .contact-info {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover {
-            color: var(--accent);
-        }
-        
-        .contact-item i {
-            font-size: 1.2rem;
-        }
-        
-        section {
-            padding: 6rem 0;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background-color: rgba(100, 255, 218, 0.3);
-        }
-        
-        .section-title span {
-            color: var(--accent);
-            font-weight: 400;
-            margin-right: 0.5rem;
-        }
-        
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .skill-group {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-        }
-        
-        .skill-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
-            border-color: var(--accent);
-        }
-        
-        .skill-group h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .skill-list {
-            list-style-type: none;
-        }
-        
-        .skill-list li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-list li::before {
-            content: '▹';
-            color: var(--accent);
-        }
-        
-        .value-props {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .value-prop {
-            border-left: 2px solid var(--accent);
-            padding-left: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .value-prop:hover {
-            transform: translateX(5px);
-        }
-        
-        .value-prop p {
-            color: var(--text-secondary);
-        }
-        
-        .cases {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .case {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-        }
-        
-        .case:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
-            border-color: var(--accent);
-        }
-        
-        .case-content {
-            padding: 1.5rem;
-            flex: 1;
-        }
-        
-        .case-title {
-            color: var(--text);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .case-subtitle {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .case-body {
-            color: var(--text-secondary);
-        }
-        
-        .case-metrics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .metric {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--accent);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        
-        .tools {
-            margin-top: 1.5rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        .tools span {
-            display: inline-block;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-        
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-            position: absolute;
-            right: 10%;
-            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-        }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-description {
-                font-size: 1.2rem;
-            }
-            
-            .profile-img {
-                position: relative;
-                right: auto;
-                margin-bottom: 2rem;
-                width: 200px;
-                height: 200px;
-            }
-            
-            header {
-                height: auto;
-                padding-top: 6rem;
-                padding-bottom: 3rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-            }
-            
-            .cases {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виталий Дедюхин - Маркетолог</title>
+  <!-- Добавлены стили для выравнивания содержимого -->
+  <style>
+    :root {
+      --primary-color: #0057b8;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      width: 100%;
+      padding: 1rem 0;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    main {
+      width: 100%;
+      max-width: 800px;
+      padding: 2rem 1rem;
+      background: #fff;
+      margin-top: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    .competencies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .competencies h3 {
+      margin-bottom: 0.5rem;
+    }
+    .competencies ul {
+      list-style: disc inside;
+      margin: 0;
+      padding: 0;
+    }
+    .cases .case {
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+    .cases .case h3 {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      width: 100%;
+      padding: 1rem 0;
+      background: #fff;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">ВД</div>
     <nav>
-        <div class="nav-container">
-            <div class="logo">SUP</div>
-            <div class="nav-links">
-                <a href="#about">Обо мне</a>
-                <a href="#skills">Компетенции</a>
-                <a href="#cases">Кейсы</a>
-                <a href="#contact">Контакты</a>
-            </div>
-        </div>
+      <a href="#about">Обо мне</a>
+      <a href="#competencies">Компетенции</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#contacts">Контакты</a>
     </nav>
-
-    <header id="about">
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 40px; gap: 16px; font-family: sans-serif;">
-
-  <!-- Аватарка -->
-  <img src="https://github.com/helloitssup/helloitssup.github.io/blob/main/photo_2025-05-07_13-25-40.jpg?raw=true"
-       alt="Аватарка Vitaly Dedyukhin"
-       style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-        <div class="container">
-                <p class="hero-subtitle fade-in">Привет, меня зовут</p>
-                <h1 class="hero-title fade-in delay-1">Виталий Дедюхин.</h1>
-                <h2 class="hero-title fade-in delay-2" style="color: var(--text-secondary);">Маркетолог.</h2>
-                <p class="hero-description fade-in delay-3">
-                    3+ лет в IT, SaaS, B2C/B2B. Помогаю IT-компаниям и брендам достигать бизнес-целей через performance-маркетинг, глубокую аналитику и автоматизацию процессов. Фокусируюсь на ROI и устойчивом росте.
-                </p>
-                <div class="contact-info fade-in delay-4">
-                    <a href="mailto:deduhinv@gmail.com" class="contact-item">
-                        <i class="far fa-envelope"></i>
-                        deduhinv@gmail.com
-                    </a>
-                    <a href="https://t.me/sup_xz" class="contact-item">
-                        <i class="fab fa-telegram"></i>
-                        @sup_xz
-                    </a>
-                    <span class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Москва
-                    </span>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title fade-in"><span>01.</span> Компетенции и навыки</h2>
-            
-            <div class="skills">
-                <div class="skill-group fade-in delay-1">
-                    <h3>Performance Marketing</h3>
-                    <ul class="skill-list">
-                        <li>Paid Social</li>
-                        <li>PPC</li>
-                        <li>CPA-сети</li>
-                        <li>Google Ads</li>
-                        <li>Facebook Ads</li>
-                        <li>Яндекс.Директ</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-group fade-in delay-2">
-                    <h3>Веб и продуктовая аналитика</h3>
-                    <ul class="skill-list">
-                        <li>GA4</li>
-                        <li>Amplitude</li>
-                        <li>Mixpanel</li>
-                        <li>GTM</li>
-                        <li>Hotjar</li>
-                        <li>Яндекс Метрика</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-group fade-in delay-3">
-                    <h3>Автоматизация маркетинга</h3>
-                    <ul class="skill-list">
-                        <li>CRM (HubSpot, )</li>
-                        <li>CDP</li>
-                        <li>Чат-боты (ManyChat)</li>
-                        <li>Salesforce</li>
-                        <li>Zapier</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-group fade-in delay-4">
-                    <h3>SEO и контент-маркетинг</h3>
-                    <ul class="skill-list">
-                        <li>SEO-оптимизация</li>
-                        <li>Контент-стратегия</li>
-                        <li>Semrush</li>
-                        <li>Ahrefs</li>
-                        <li>Email-маркетинг</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h2 class="section-title fade-in delay-5" style="margin-top: 4rem;"><span>02.</span> Ценность для работодателя</h2>
-            
-            <div class="value-props">
-                <div class="value-prop fade-in delay-1">
-                    <p>Снижаю CPA, повышаю CR и LTV</p>
-                </div>
-                
-                <div class="value-prop fade-in delay-2">
-                    <p>Работаю на ROI, а не на освоение бюджета</p>
-                </div>
-                
-                <div class="value-prop fade-in delay-3">
-                    <p>Интегрирую end-to-end аналитику</p>
-                </div>
-                
-                <div class="value-prop fade-in delay-4">
-                    <p>Быстро вливаюсь в команду</p>
-                </div>
-            </div>
-        </div>
+  </header>
+  <main>
+    <section id="about">
+      <img src="photo_2025-05-07_13-25-40.jpg" alt="Виталий Дедюхин" class="avatar">
+      <p>Привет, меня зовут</p>
+      <h1>Виталий Дедюхин.</h1>
+      <h2>Маркетолог.</h2>
+      <p>3+ лет в IT, SaaS, B2C/B2B. Помогаю IT-компаниям и брендам достигать бизнес-целей через performance-маркетинг, глубокую аналитику и автоматизацию процессов. Фокусируюсь на ROI и устойчивом росте.</p>
+      <p><a href="mailto:deduhinv@gmail.com">deduhinv@gmail.com</a> &nbsp; <a href="https://t.me/sup_xz">@sup_xz</a> &nbsp; Москва</p>
     </section>
-
+    <section id="competencies">
+      <h2>01. Компетенции и навыки</h2>
+      <div class="competencies">
+        <div>
+          <h3>Performance Marketing</h3>
+          <ul>
+            <li>Paid Social</li>
+            <li>PPC</li>
+            <li>CPA-сети</li>
+            <li>Google Ads</li>
+            <li>Facebook Ads</li>
+            <li>Яндекс.Директ</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Веб и продуктовая аналитика</h3>
+          <ul>
+            <li>GA4</li>
+            <li>Amplitude</li>
+            <li>Mixpanel</li>
+            <li>GTM</li>
+            <li>Hotjar</li>
+            <li>Яндекс Метрика</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Автоматизация маркетинга</h3>
+          <ul>
+            <li>CRM (HubSpot, AmoCRM)</li>
+            <li>CDP</li>
+            <li>Чат-боты (ManyChat)</li>
+            <li>Salesforce</li>
+            <li>Zapier</li>
+          </ul>
+        </div>
+        <div>
+          <h3>SEO и контент-маркетинг</h3>
+          <ul>
+            <li>SEO-оптимизация</li>
+            <li>Контент-стратегия</li>
+            <li>Semrush</li>
+            <li>Ahrefs</li>
+            <li>Email-маркетинг</li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <section id="cases">
-        <div class="container">
-            <h2 class="section-title fade-in"><span>03.</span> Кейсы</h2>
-            
-            <div class="cases">
-                <div class="case fade-in delay-1">
-                    <div class="case-content">
-                        <h3 class="case-title">SmallTalk</h3>
-                        <p class="case-subtitle">EdTech</p>
-                        <div class="case-body">
-                            <p><strong>Цель:</strong> увеличить регистрации и снизить CPA</p>
-                            <p><strong>Проблема:</strong> низкая узнаваемость, высокий CPA</p>
-                            <p><strong>Решение:</strong> performance-стратегия, A/B тесты, SEO</p>
-                            
-                            <div class="case-metrics">
-                                <div class="metric">CPA: -35%</div>
-                                <div class="metric">CR: +30%</div>
-                                <div class="metric">Лиды: +150%</div>
-                            </div>
-                            
-                            <div class="tools">
-                                <span>Facebook Ads</span>
-                                <span>Google Analytics</span>
-                                <span>Semrush</span>
-                                <span>Ahrefs</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case fade-in delay-2">
-                    <div class="case-content">
-                        <h3 class="case-title">Hookah Place</h3>
-                        <p class="case-subtitle">HoReCa</p>
-                        <div class="case-body">
-                            <p><strong>Цель:</strong> автоматизация и удержание</p>
-                            <p><strong>Проблема:</strong> нет CRM, ручное бронирование</p>
-                            <p><strong>Решение:</strong> CRM, чат-бот, геореклама</p>
-                            
-                            <div class="case-metrics">
-                                <div class="metric">Повторные визиты: +60%</div>
-                                <div class="metric">Автоматизация: 80%</div>
-                                <div class="metric">Средний чек: +20%</div>
-                            </div>
-                            
-                            <div class="tools">
-                                <span>iiko</span>
-                                <span>ManyChat</span>
-                                <span>Яндекс Директ</span>
-                                <span>Яндекс Метрика</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case fade-in delay-3">
-                    <div class="case-content">
-                        <h3 class="case-title">Ski Brand "KOTUMONU"</h3>
-                        <p class="case-subtitle">Luxury</p>
-                        <div class="case-body">
-                            <p><strong>Цель:</strong> привлечь премиум-аудиторию</p>
-                            <p><strong>Проблема:</strong> высокая цена клика, низкий CR</p>
-                            <p><strong>Решение:</strong> таргетинг, инфлюенсеры, редизайн</p>
-                            
-                            <div class="case-metrics">
-                                <div class="metric">ROI: +180%</div>
-                                <div class="metric">Средний чек: +35%</div>
-                                <div class="metric">CR: +2.5 п.п.</div>
-                            </div>
-                            
-                            <div class="tools">
-                                <span>Facebook Ads</span>
-                                <span>Shopify</span>
-                                <span>GTM</span>
-                                <span>Hotjar</span>
-                                <span>Influencer-платформы</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="case fade-in delay-4">
-                    <div class="case-content">
-                        <h3 class="case-title">Fashion Brand "Leap Year"</h3>
-                        <p class="case-subtitle">Wildberries + Direct</p>
-                        <div class="case-body">
-                            <p><strong>Цель:</strong> увеличить продажи на WB и через сайт</p>
-                            <p><strong>Проблема:</strong> высокая конкуренция, низкая маржа</p>
-                            <p><strong>Решение:</strong> оптимизация карточек, D2C каналы</p>
-                            
-                            <div class="case-metrics">
-                                <div class="metric">WB: +70%</div>
-                                <div class="metric">D2C: +120%</div>
-                                <div class="metric">ДРР: -15%</div>
-                            </div>
-                            
-                            <div class="tools">
-                                <span>WB Seller</span>
-                                <span>MPStats</span>
-                                <span>Google Ads</span>
-                                <span>WIX</span>
-                                <span>Tilda</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <h2>03. Кейсы</h2>
+      <div class="cases">
+        <div class="case">
+          <h3>SmallTalk (EdTech)</h3>
+          <p><strong>Цель:</strong> увеличить регистрации и снизить CPA</p>
+          <p><strong>Проблема:</strong> низкая узнаваемость, высокий CPA</p>
+          <p><strong>Решение:</strong> performance-стратегия, A/B тесты, SEO</p>
+          <p><strong>Результаты:</strong> CPA -45%, CR +30%, Лиды +150%</p>
         </div>
+        <div class="case">
+          <h3>Hookah Place (HoReCa)</h3>
+          <p><strong>Цель:</strong> автоматизация и удержание</p>
+          <p><strong>Проблема:</strong> нет CRM, ручное бронирование</p>
+          <p><strong>Решение:</strong> CRM, чат-бот, геореклама</p>
+          <p><strong>Результаты:</strong> Повторные визиты +60%, Автоматизация 80%, Средний чек +20%</p>
+        </div>
+        <div class="case">
+          <h3>Ski Brand "KOTUMONU" (Luxury)</h3>
+          <p><strong>Цель:</strong> привлечь премиум-аудиторию</p>
+          <p><strong>Проблема:</strong> высокая цена клика, низкий CR</p>
+          <p><strong>Решение:</strong> таргетинг, инфлюенсеры, редизайн</p>
+          <p><strong>Результаты:</strong> ROI +180%, Средний чек +35%, CR +2.5 п.п.</p>
+        </div>
+        <div class="case">
+          <h3>Fashion Brand "Leap Year" (Wildberries + Direct)</h3>
+          <p><strong>Цель:</strong> увеличить продажи на WB и через сайт</p>
+          <p><strong>Проблема:</strong> высокая конкуренция, низкая маржа</p>
+          <p><strong>Решение:</strong> оптимизация карточек, D2C каналы</p>
+          <p><strong>Результаты:</strong> WB +70%, D2C +120%, ДРР -15%</p>
+        </div>
+      </div>
     </section>
-    <!-- Кнопка Telegram -->
-  <a href="https://t.me/@sup_xz" 
-     target="_blank"
-     style="display: inline-flex; align-items: center; gap: 8px; background-color: #0088cc; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 20px; height: 20px;" />
-    Связаться в Telegram
-  </a>
-    
-
-    <footer id="contact">
-        <div class="container">
-            <p>Свяжитесь со мной</p>
-            <div class="contact-info" style="justify-content: center; margin-top: 1rem;">
-                <a href="mailto:deduhinv@gmail.com" class="contact-item">
-                    <i class="far fa-envelope"></i>
-                    deduhinv@gmail.com
-                </a>
-                <a href="https://t.me/sup_xz" class="contact-item">
-                    <i class="fab fa-telegram"></i>
-                    @sup_xz
-                </a>
-            </div>
-            <p style="margin-top: 2rem;">© 2025 Виталий Дедюхин. Все права защищены.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Simple animation observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <section id="contacts">
+      <h2>Контакты</h2>
+      <p><a href="mailto:deduhinv@gmail.com">deduhinv@gmail.com</a> &nbsp; <a href="https://t.me/sup_xz">Telegram</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Виталий Дедюхин. Все права защищены.</p>
+  </footer>
 </body>
 </html>
