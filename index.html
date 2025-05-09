@@ -1,24 +1,63 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="ru">
 <head>
     <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(101702349, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/101702349" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-    
+        ym(101702349, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/101702349" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <!-- SEO метатеги -->
     <meta name="description" content="Портфолио Senior-маркетолога с опытом в IT, SaaS, B2C/B2B. Эксперт по performance-маркетингу, аналитике и автоматизации процессов. Целевая аудитория — HR и Head of Marketing.">
     <meta name="keywords" content="маркетолог, digital маркетинг, performance, аналитика, senior marketer, IT-маркетинг, SaaS, B2B">
@@ -35,12 +74,12 @@
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3QHW8F0W6"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-G3QHW8F0W6');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G3QHW8F0W6');
     </script>
-    
+
     <!-- Amplitude -->
     <script src="https://cdn.eu.amplitude.com/script/62f18afcd4a86f2eabc3c0736b339462.js"></script>
     <script>
@@ -51,9 +90,9 @@
             "autocapture":true
         });
     </script>
-    
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Виталий Дедюхин - Маркетолог</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -67,173 +106,190 @@
             --card-bg: #112240;
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        
+
         body {
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        
+
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
-        
+
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
+            padding-top: 5rem;
         }
-        
+
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1.5rem 0;
-            background-color: rgba(10, 25, 47, 0.85);
+            padding: 1rem;
+            background-color: rgba(10, 25, 47, 0.95);
             backdrop-filter: blur(10px);
             z-index: 100;
             border-bottom: 1px solid rgba(100, 255, 218, 0.1);
         }
-        
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
-        
+
         .logo {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: bold;
             color: var(--accent);
         }
-        
+
         .nav-links {
-            display: flex;
-            gap: 2rem;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            flex-direction: column;
+            padding: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
+        .nav-links.active {
+            display: flex;
+        }
+
         .nav-links a {
             color: var(--text);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            padding: 0.75rem 1rem;
             transition: var(--transition);
             position: relative;
         }
-        
+
         .nav-links a:hover {
             color: var(--accent);
         }
-        
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
+
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent);
+            z-index: 101;
         }
-        
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-        
+
         .hero {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            max-width: 800px;
-        }
-        
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
         .hero-subtitle {
             color: var(--accent);
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
             font-weight: 400;
         }
-        
+
         .hero-title {
-            font-size: 4rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: 800;
             line-height: 1.1;
         }
-        
+
         .hero-description {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            max-width: 540px;
-        }
-        
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 0;
+    text-align: left;
+}
+
         .contact-info {
             display: flex;
-            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
             margin-top: 1.5rem;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--text-secondary);
             text-decoration: none;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             transition: var(--transition);
         }
-        
+
         .contact-item:hover {
             color: var(--accent);
         }
-        
+
         .contact-item i {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
         }
-        
+
         section {
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
-        
+
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 2rem;
             color: var(--text);
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
         }
-        
+
         .section-title::after {
             content: '';
             flex: 1;
             height: 1px;
             background-color: rgba(100, 255, 218, 0.3);
         }
-        
+
         .section-title span {
             color: var(--accent);
             font-weight: 400;
             margin-right: 0.5rem;
         }
-        
+
         .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
-        
+
         .skill-group {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -242,183 +298,223 @@
             transition: var(--transition);
             border: 1px solid rgba(100, 255, 218, 0.1);
         }
-        
+
         .skill-group:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
             border-color: var(--accent);
         }
-        
+
         .skill-group h3 {
             color: var(--accent);
             margin-bottom: 1rem;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
         }
-        
+
         .skill-list {
             list-style-type: none;
         }
-        
+
         .skill-list li {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         .skill-list li::before {
             content: '▹';
             color: var(--accent);
         }
-        
+
         .value-props {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
-        
+
         .value-prop {
             border-left: 2px solid var(--accent);
-            padding-left: 1.5rem;
+            padding-left: 1rem;
             transition: var(--transition);
         }
-        
+
         .value-prop:hover {
             transform: translateX(5px);
         }
-        
+
         .value-prop p {
             color: var(--text-secondary);
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         .cases {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
-        
+
         .case {
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
             transition: var(--transition);
-            height: 100%;
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(100, 255, 218, 0.1);
         }
-        
+
         .case:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
             border-color: var(--accent);
         }
-        
+
         .case-content {
             padding: 1.5rem;
             flex: 1;
         }
-        
+
         .case-title {
             color: var(--text);
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             margin-bottom: 0.5rem;
         }
-        
+
         .case-subtitle {
             color: var(--accent);
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             margin-bottom: 1rem;
         }
-        
+
         .case-body {
             color: var(--text-secondary);
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         .case-metrics {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
-        
+
         .metric {
             background-color: rgba(100, 255, 218, 0.1);
             color: var(--accent);
             padding: 0.3rem 0.8rem;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
         }
-        
+
         .tools {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
         }
-        
+
         .tools span {
             display: inline-block;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
         }
-        
+
         footer {
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 0;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
         }
-        
+
         footer a {
             color: var(--accent);
             text-decoration: none;
         }
-        
+
         .profile-img {
-            width: 300px;
-            height: 300px;
+            width: clamp(150px, 40vw, 200px);
+            height: clamp(150px, 40vw, 200px);
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent);
-            position: absolute;
-            right: 10%;
+            margin: 0 auto 2rem;
+            display: block;
             box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
         }
-        
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-description {
-                font-size: 1.2rem;
-            }
-            
-            .profile-img {
-                position: relative;
-                right: auto;
-                margin-bottom: 2rem;
-                width: 200px;
-                height: 200px;
-            }
-            
-            header {
-                height: auto;
-                padding-top: 6rem;
-                padding-bottom: 3rem;
-            }
-            
-            .header-content {
-                flex-direction: column;
-            }
-            
-            .cases {
-                grid-template-columns: 1fr;
-            }
-        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        position: static;
+        background: none;
+        box-shadow: none;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .hero {
+        text-align: left;
+        padding-right: 280px;
+    }
+
+    .hero-description {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    text-align: left;
+}
+
+    .skills {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .value-props {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .cases {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .profile-img {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .profile-img {
+        width: 250px;
+        height: 250px;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .hero {
+        padding-right: 300px;
+    }
+}
+
 
         /* Animation */
         @keyframes fadeInUp {
@@ -431,23 +527,32 @@
                 transform: translateY(0);
             }
         }
-        
+
         .fade-in {
             animation: fadeInUp 0.6s ease forwards;
             opacity: 0;
         }
-        
+
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
         .delay-5 { animation-delay: 0.5s; }
+
+        /* Touch optimization */
+        a, button, .contact-item {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
             <div class="logo">SUP</div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="nav-links">
                 <a href="#about">Обо мне</a>
                 <a href="#skills">Компетенции</a>
@@ -488,7 +593,6 @@
     <section id="skills">
         <div class="container">
             <h2 class="section-title fade-in"><span>01.</span> Компетенции и навыки</h2>
-            
             <div class="skills">
                 <div class="skill-group fade-in delay-1">
                     <h3>Performance Marketing</h3>
@@ -501,7 +605,6 @@
                         <li>Яндекс.Директ</li>
                     </ul>
                 </div>
-                
                 <div class="skill-group fade-in delay-2">
                     <h3>Веб и продуктовая аналитика</h3>
                     <ul class="skill-list">
@@ -512,7 +615,6 @@
                         <li>Hotjar</li>
                     </ul>
                 </div>
-                
                 <div class="skill-group fade-in delay-3">
                     <h3>Автоматизация маркетинга</h3>
                     <ul class="skill-list">
@@ -523,7 +625,6 @@
                         <li>Zapier</li>
                     </ul>
                 </div>
-                
                 <div class="skill-group fade-in delay-4">
                     <h3>SEO и контент-маркетинг</h3>
                     <ul class="skill-list">
@@ -534,22 +635,17 @@
                     </ul>
                 </div>
             </div>
-            
-            <h2 class="section-title fade-in delay-5" style="margin-top: 4rem;"><span>02.</span> Ценность для работодателя</h2>
-            
+            <h2 class="section-title fade-in delay-5" style="margin-top: 3rem;"><span>02.</span> Ценность для работодателя</h2>
             <div class="value-props">
                 <div class="value-prop fade-in delay-1">
                     <p>Снижаю CPA, повышаю CR и LTV</p>
                 </div>
-                
                 <div class="value-prop fade-in delay-2">
                     <p>Работаю на ROI, а не на освоение бюджета</p>
                 </div>
-                
                 <div class="value-prop fade-in delay-3">
                     <p>Интегрирую end-to-end аналитику</p>
                 </div>
-                
                 <div class="value-prop fade-in delay-4">
                     <p>Быстро вливаюсь в команду</p>
                 </div>
@@ -560,7 +656,6 @@
     <section id="cases">
         <div class="container">
             <h2 class="section-title fade-in"><span>03.</span> Кейсы</h2>
-            
             <div class="cases">
                 <div class="case fade-in delay-1">
                     <div class="case-content">
@@ -570,13 +665,11 @@
                             <p><strong>Цель:</strong> увеличить регистрации и снизить CPA</p>
                             <p><strong>Проблема:</strong> низкая узнаваемость, высокий CPA</p>
                             <p><strong>Решение:</strong> performance-стратегия, A/B тесты, SEO</p>
-                            
                             <div class="case-metrics">
                                 <div class="metric">CPA: -35%</div>
                                 <div class="metric">CR: +30%</div>
                                 <div class="metric">Лиды: +150%</div>
                             </div>
-                            
                             <div class="tools">
                                 <span>Facebook Ads</span>
                                 <span>Google Analytics</span>
@@ -586,7 +679,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="case fade-in delay-2">
                     <div class="case-content">
                         <h3 class="case-title">Hookah Place</h3>
@@ -595,13 +687,11 @@
                             <p><strong>Цель:</strong> автоматизация и удержание</p>
                             <p><strong>Проблема:</strong> нет CRM, ручное бронирование</p>
                             <p><strong>Решение:</strong> CRM, чат-бот, геореклама</p>
-                            
                             <div class="case-metrics">
                                 <div class="metric">Повторные визиты: +60%</div>
                                 <div class="metric">Автоматизация: 80%</div>
                                 <div class="metric">Средний чек: +20%</div>
                             </div>
-                            
                             <div class="tools">
                                 <span>iiko</span>
                                 <span>ManyChat</span>
@@ -610,7 +700,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="case fade-in delay-3">
                     <div class="case-content">
                         <h3 class="case-title">Ski Brand</h3>
@@ -619,12 +708,10 @@
                             <p><strong>Цель:</strong> привлечь премиум-аудиторию</p>
                             <p><strong>Проблема:</strong> высокая цена клика, низкий CR</p>
                             <p><strong>Решение:</strong> таргетинг, инфлюенсеры, редизайн</p>
-                            
                             <div class="case-metrics">
                                 <div class="metric">ROI: +180%</div>
                                 <div class="metric">CR: +2.5 п.п.</div>
                             </div>
-                            
                             <div class="tools">
                                 <span>Facebook Ads</span>
                                 <span>GTM</span>
@@ -634,7 +721,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="case fade-in delay-4">
                     <div class="case-content">
                         <h3 class="case-title">Fashion Brand</h3>
@@ -643,13 +729,11 @@
                             <p><strong>Цель:</strong> увеличить продажи на WB и через сайт</p>
                             <p><strong>Проблема:</strong> высокая конкуренция, низкая маржа</p>
                             <p><strong>Решение:</strong> оптимизация карточек, D2C каналы</p>
-                            
                             <div class="case-metrics">
                                 <div class="metric">WB: +70%</div>
                                 <div class="metric">D2C: +120%</div>
                                 <div class="metric">ДРР: -15%</div>
                             </div>
-                            
                             <div class="tools">
                                 <span>WB Seller</span>
                                 <span>MPStats</span>
@@ -668,6 +752,12 @@
     <footer id="contact">
         <div class="container">
             <p>Свяжитесь со мной</p>
+            <a href="https://t.me/@sup_xz" 
+               target="_blank"
+               style="display: inline-flex; align-items: center; gap: 8px; background-color: #0088cc; color: white; margin: 20px auto; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 20px; height: 20px;" />
+                Связаться в Telegram
+            </a>
             <div class="contact-info" style="justify-content: center; margin-top: 1rem;">
                 <a href="mailto:deduhinv@gmail.com" class="contact-item">
                     <i class="far fa-envelope"></i>
@@ -683,12 +773,31 @@
     </footer>
 
     <script>
-        // Simple animation observer
+        // Menu toggle for mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // Animation observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -697,20 +806,18 @@
                 }
             });
         }, observerOptions);
-        
+
         document.querySelectorAll('.fade-in').forEach(el => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
-        
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -719,6 +826,18 @@
                 }
             });
         });
+
+        // Prevent pinch zoom
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        // Optimize touch events
+        document.addEventListener('touchmove', function(event) {
+            event.scale = 1;
+        }, { passive: false });
     </script>
 </body>
 </html>
