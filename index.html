@@ -428,9 +428,9 @@
           <div class="case-category">EdTech</div>
           <h3 class="case-title">SmallTalk Inc.</h3>
           <ul class="metrics">
-            <li><span class="metric-icon">📉</span>Снижение CPA на 35%</li>
-            <li><span class="metric-icon">📈</span>Рост конверсии на 30%</li>
-            <li><span class="metric-icon">💡</span>+150% лидов через новые каналы</li>
+            <li><span class="metric-icon">📉</span><span id="case1-metric1">Снижение CPA на 35%</span></li>
+            <li><span class="metric-icon">📈</span><span id="case1-metric2">Рост конверсии на 30%</span></li>
+            <li><span class="metric-icon">💡</span><span id="case1-metric3">+150% лидов через новые каналы</span></li>
           </ul>
         </div>
         
@@ -438,9 +438,9 @@
           <div class="case-category">HoReCa</div>
           <h3 class="case-title">Hookah Place</h3>
           <ul class="metrics">
-            <li><span class="metric-icon">🔁</span>Повторные визиты +60%</li>
-            <li><span class="metric-icon">💰</span>Средний чек +20%</li>
-            <li><span class="metric-icon">🤖</span>Автоматизация 80% процессов</li>
+            <li><span class="metric-icon">🔁</span><span id="case2-metric1">Повторные визиты +60%</span></li>
+            <li><span class="metric-icon">💰</span><span id="case2-metric2">Средний чек +20%</span></li>
+            <li><span class="metric-icon">🤖</span><span id="case2-metric3">Автоматизация 80% процессов</span></li>
           </ul>
         </div>
         
@@ -448,9 +448,9 @@
           <div class="case-category">D2C</div>
           <h3 class="case-title">KOTUMONU</h3>
           <ul class="metrics">
-            <li><span class="metric-icon">🚀</span>Запуск бренда с нуля</li>
-            <li><span class="metric-icon">📊</span>ROI +180%</li>
-            <li><span class="metric-icon">🎯</span>Рост конверсии +25%</li>
+            <li><span class="metric-icon">🚀</span><span id="case3-metric1">Запуск бренда с нуля</span></li>
+            <li><span class="metric-icon">📊</span><span id="case3-metric2">ROI +180%</span></li>
+            <li><span class="metric-icon">🎯</span><span id="case3-metric3">Рост конверсии +25%</span></li>
           </ul>
         </div>
       </div>
@@ -462,42 +462,41 @@
       <h2 class="section-title" id="skills-title">Навыки и инструменты</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>🧪 Методология</h3>
+          <h3 id="skill1-title">🧪 Методология</h3>
           <ul class="skill-list">
-            <li>A/B и многофакторное тестирование</li>
-            <li>Growth Hacking</li>
-            <li>CRO (Conversion Rate Optimization)</li>
-            <li>Funnel Analysis</li>
+            <li id="skill1-item1">A/B и многофакторное тестирование</li>
+            <li id="skill1-item2">Growth Hacking</li>
+            <li id="skill1-item3">CRO (Conversion Rate Optimization)</li>
+            <li id="skill1-item4">Funnel Analysis</li>
           </ul>
         </div>
         
         <div class="skill-category">
-          <h3>📊 Аналитика</h3>
+          <h3 id="skill2-title">📊 Аналитика</h3>
           <ul class="skill-list">
-            <li>Google Analytics 4</li>
-            <li>Яндекс.Метрика</li>
-            <li>Amplitude</li>
-            <li>Tableau, Power BI</li>
+            <li id="skill2-item1">Google Analytics 4</li>
+            <li id="skill2-item2">Яндекс.Метрика</li>
+            <li id="skill2-item3">Amplitude</li>
+            <li id="skill2-item4">Tableau, Power BI</li>
           </ul>
         </div>
         
         <div class="skill-category">
-          <h3>🚀 Каналы привлечения</h3>
+          <h3 id="skill3-title">🚀 Каналы привлечения</h3>
           <ul class="skill-list">
-            <li>Google Ads, Яндекс.Директ</li>
-            <li>Facebook/Meta Ads</li>
-            <li>Email & SMS маркетинг</li>
-            <li>SEO/SEM</li>
+            <li id="skill3-item1">Google Ads, Яндекс.Директ</li>
+            <li id="skill3-item2">Facebook/Meta Ads</li>
+            <li id="skill3-item3">Email & SMS маркетинг</li>
+            <li id="skill3-item4">SEO/SEM</li>
           </ul>
         </div>
         
         <div class="skill-category">
-          <h3>⚙️ Автоматизация</h3>
+          <h3 id="skill4-title">⚙️ Автоматизация</h3>
           <ul class="skill-list">
-            <li>Telegram-боты</li>
-            <li>CRM интеграции</li>
-            <li>Zapier, Make.com</li>
-            <li>Python для аналитики</li>
+            <li id="skill4-item1">Telegram-боты</li>
+            <li id="skill4-item2">CRM интеграции</li>
+            <li id="skill4-item3">Zapier, Make.com</li>
           </ul>
         </div>
       </div>
@@ -538,7 +537,37 @@
         'skills-title': 'Навыки и инструменты',
         'contact-title': 'Готов к сотрудничеству',
         'contact-subtitle': 'Свяжитесь со мной для обсуждения вашего проекта',
-        'cv-link': 'Скачать резюме'
+        'cv-link': 'Скачать резюме',
+        // Cases
+        'case1-metric1': 'Снижение CPA на 35%',
+        'case1-metric2': 'Рост конверсии на 30%',
+        'case1-metric3': '+150% лидов через новые каналы',
+        'case2-metric1': 'Повторные визиты +60%',
+        'case2-metric2': 'Средний чек +20%',
+        'case2-metric3': 'Автоматизация 80% процессов',
+        'case3-metric1': 'Запуск бренда с нуля',
+        'case3-metric2': 'ROI +180%',
+        'case3-metric3': 'Рост конверсии +25%',
+        // Skills
+        'skill1-title': '🧪 Методология',
+        'skill1-item1': 'A/B и многофакторное тестирование',
+        'skill1-item2': 'Growth Hacking',
+        'skill1-item3': 'CRO (Conversion Rate Optimization)',
+        'skill1-item4': 'Funnel Analysis',
+        'skill2-title': '📊 Аналитика',
+        'skill2-item1': 'Google Analytics 4',
+        'skill2-item2': 'Яндекс.Метрика',
+        'skill2-item3': 'Amplitude',
+        'skill2-item4': 'Tableau, Power BI',
+        'skill3-title': '🚀 Каналы привлечения',
+        'skill3-item1': 'Google Ads, Яндекс.Директ',
+        'skill3-item2': 'Facebook/Meta Ads',
+        'skill3-item3': 'Email & SMS маркетинг',
+        'skill3-item4': 'SEO/SEM',
+        'skill4-title': '⚙️ Автоматизация',
+        'skill4-item1': 'Telegram-боты',
+        'skill4-item2': 'CRM интеграции',
+        'skill4-item3': 'Zapier, Make.com',
       },
       en: {
         'hero-title': 'Vitaly Dedyukhin',
@@ -551,7 +580,37 @@
         'skills-title': 'Skills & Tools',
         'contact-title': 'Ready to Collaborate',
         'contact-subtitle': 'Contact me to discuss your project',
-        'cv-link': 'Download CV'
+        'cv-link': 'Download CV',
+        // Cases
+        'case1-metric1': 'CPA reduced by 35%',
+        'case1-metric2': 'Conversion rate +30%',
+        'case1-metric3': '+150% leads via new channels',
+        'case2-metric1': 'Repeat visits +60%',
+        'case2-metric2': 'Average check +20%',
+        'case2-metric3': '80% process automation',
+        'case3-metric1': 'Brand launch from scratch',
+        'case3-metric2': 'ROI +180%',
+        'case3-metric3': 'Conversion growth +25%',
+        // Skills
+        'skill1-title': '🧪 Methodology',
+        'skill1-item1': 'A/B and multivariate testing',
+        'skill1-item2': 'Growth Hacking',
+        'skill1-item3': 'CRO (Conversion Rate Optimization)',
+        'skill1-item4': 'Funnel Analysis',
+        'skill2-title': '📊 Analytics',
+        'skill2-item1': 'Google Analytics 4',
+        'skill2-item2': 'Yandex.Metrica',
+        'skill2-item3': 'Amplitude',
+        'skill2-item4': 'Tableau, Power BI',
+        'skill3-title': '🚀 Acquisition Channels',
+        'skill3-item1': 'Google Ads, Yandex.Direct',
+        'skill3-item2': 'Facebook/Meta Ads',
+        'skill3-item3': 'Email & SMS marketing',
+        'skill3-item4': 'SEO/SEM',
+        'skill4-title': '⚙️ Automation',
+        'skill4-item1': 'Telegram bots',
+        'skill4-item2': 'CRM integrations',
+        'skill4-item3': 'Zapier, Make.com',
       }
     };
 
