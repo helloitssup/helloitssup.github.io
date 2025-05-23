@@ -1,4 +1,35 @@
-<!DOCTYPE html>
+<script>
+        // Language switching functionality
+        let currentLang = 'ru';
+        
+        const translations = {
+            ru: {
+                'IT Marketing Specialist': 'Маркетолог для IT',
+                'I increase conversions, reduce CPA and scale products. 3+ years of digital marketing experience focused on results.': 'Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 3+ года опыта в digital-маркетинге с фокусом на результат.',
+                'Get in Touch': 'Связаться',
+                'Cases': 'Кейсы',
+                'Contact': 'Контакты',
+                'years experience': 'года опыта',
+                'leads growth': 'рост лидов',
+                'CPA reduction': 'снижение CPA',
+                'ROI growth': 'рост ROI',
+                'Case Studies': 'Кейсы',
+                'Real results from product work': 'Реальные результаты работы с продуктами',
+                'Ready for New Challenges': 'Готов к новым вызовам',
+                'Looking for a marketing position in an IT company where I can apply my experience to grow the product and team.': 'Ищу позицию маркетолога в IT-компании, где смогу применить опыт для роста продукта и команды.'
+            },
+            en: {
+                'Маркетолог для IT': 'IT Marketing Specialist',
+                'Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 3+ года опыта в digital-маркетинге с фокусом на результат.': 'I increase conversions, reduce CPA and scale products. 3+ years of digital marketing experience focused on results.',
+                'Связаться': 'Get in Touch',
+                'Кейсы': 'Cases',
+                'Контакты': 'Contact',
+                'года опыта': 'years experience',
+                'рост лидов': 'leads growth',
+                'снижение CPA': 'CPA reduction',
+                'рост ROI': 'ROI growth',
+                'Реальные результаты работы с продуктами': 'Real results from product work',
+                'Готов к новым вызовам': 'Ready for New Challenges',<!DOCTYPE html>
 <html lang="ru">
 <head>
 <!-- FAVICON -->
@@ -53,584 +84,968 @@
             "autocapture":true
         });
     </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Виталий Дедюхин — Digital-маркетолог</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: #e5e7eb;
-      background: #1a1d23;
-    }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    /* Header */
-    header {
-      padding: 80px 0 60px;
-      text-align: center;
-    }
-    
-    .hero-title {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
-    
-    .hero-subtitle {
-      font-size: 24px;
-      font-weight: 400;
-      color: #22d3ee;
-      margin-bottom: 24px;
-    }
-    
-    .hero-description {
-      font-size: 18px;
-      color: #9ca3af;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-    
-    .btn-primary {
-      background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
-      color: #1a1d23;
-      font-weight: 600;
-    }
-    
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #06b6d4 0%, #0e7490 100%);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 16px rgba(34, 211, 238, 0.3);
-    }
-    
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      color: #e5e7eb;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-1px);
-    }
-    
-    /* Language Toggle */
-    .lang-toggle {
-      position: fixed;
-      top: 24px;
-      right: 24px;
-      z-index: 100;
-    }
-    
-    .lang-toggle button {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #9ca3af;
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-left: 4px;
-      transition: all 0.2s ease;
-    }
-    
-    .lang-toggle button.active {
-      background: #22d3ee;
-      color: #1a1d23;
-      border-color: #22d3ee;
-      font-weight: 600;
-    }
-    
-    /* Sections */
-    section {
-      padding: 60px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    
-    .section-title {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 32px;
-      text-align: center;
-      color: #ffffff;
-    }
-    
-    /* About */
-    .about-content {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 18px;
-      text-align: center;
-    }
-    
-    .highlight {
-      background: linear-gradient(120deg, rgba(34, 211, 238, 0.3) 0%, rgba(34, 211, 238, 0.3) 100%);
-      background-repeat: no-repeat;
-      background-size: 100% 0.3em;
-      background-position: 0 88%;
-      font-weight: 500;
-      color: #22d3ee;
-    }
-    
-    /* Cases */
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 40px;
-    }
-    
-    .case-card {
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 12px;
-      padding: 32px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    
-    .case-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(34, 211, 238, 0.3);
-    }
-    
-    .case-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #ffffff;
-    }
-    
-    .case-category {
-      color: #22d3ee;
-      font-size: 14px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-    }
-    
-    .metrics {
-      list-style: none;
-    }
-    
-    .metrics li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      font-size: 16px;
-      color: #d1d5db;
-    }
-    
-    .metric-icon {
-      margin-right: 12px;
-      font-size: 18px;
-    }
-    
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-    
-    .skill-category {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 24px;
-      transition: all 0.3s ease;
-    }
-    
-    .skill-category:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(34, 211, 238, 0.2);
-    }
-    
-    .skill-category h3 {
-      font-size: 18px;
-      margin-bottom: 16px;
-      color: #ffffff;
-    }
-    
-    .skill-list {
-      list-style: none;
-    }
-    
-    .skill-list li {
-      padding: 4px 0;
-      color: #9ca3af;
-    }
-    
-    /* Footer */
-    footer {
-      background: rgba(0, 0, 0, 0.3);
-      color: #e5e7eb;
-      padding: 60px 0;
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    
-    footer h2 {
-      color: #ffffff;
-    }
-    
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      color: #9ca3af;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      padding: 8px 16px;
-      border-radius: 6px;
-    }
-    
-    .contact-item:hover {
-      color: #22d3ee;
-      background: rgba(34, 211, 238, 0.1);
-    }
-    
-    .contact-icon {
-      margin-right: 8px;
-      font-size: 18px;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 36px;
-      }
-      
-      .hero-subtitle {
-        font-size: 20px;
-      }
-      
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .cases-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-info {
-        flex-direction: column;
-        gap: 16px;
-      }
-      
-      .lang-toggle {
-        top: 16px;
-        right: 16px;
-      }
-    }
-    
-    /* Subtle animated background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(34, 211, 238, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(34, 211, 238, 0.03) 0%, transparent 50%);
-      z-index: -1;
-      pointer-events: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUP - Marketing Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23252525'/><text x='15' y='75' font-family='system-ui' font-size='45' font-weight='bold' fill='%23f5f5f5'>SUP</text><polygon points='75,25 85,35 75,45 70,40 77,33 70,26' fill='%2300d4d4'/></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #252525;
+            --accent-color: #00d4d4;
+            --text-primary: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --card-bg: #2a2a2a;
+            --border-color: #404040;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-text {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+
+        .logo-arrow {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid var(--accent-color);
+            transform: rotate(45deg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+            border-color: var(--accent-color);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-color);
+            color: --primary-bg;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #00b8b8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 212, 0.3);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Cases Section */
+        .cases {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        .cases-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .case-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), #00b8b8);
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .case-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .case-period {
+            background: rgba(0, 212, 212, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .case-task {
+            background: var(--primary-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .case-task h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .case-actions {
+            margin-bottom: 2rem;
+        }
+
+        .case-actions h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .case-actions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .case-actions li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .case-actions li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .case-tools {
+            margin-bottom: 2rem;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: rgba(0, 212, 212, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 212, 212, 0.2);
+        }
+
+        .case-results {
+            background: var(--primary-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-metric {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--secondary-bg);
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav {
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--primary-bg);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .lang-switcher {
+                margin-left: 0;
+                margin-top: 2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .case-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .case-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .case-period {
+                align-self: flex-start;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .tools-list {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-card {
+                padding: 1rem;
+                margin: 0;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-list {
+                gap: 0.25rem;
+            }
+
+            .tool-tag {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .case-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .case-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .case-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .case-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <button onclick="switchLang('ru')" class="active" id="ru-btn">RU</button>
-    <button onclick="switchLang('en')" id="en-btn">EN</button>
-  </div>
-
-  <header>
-    <div class="container">
-      <h1 class="hero-title" id="hero-title">Виталий Дедюхин</h1>
-      <p class="hero-subtitle" id="hero-subtitle">Digital-маркетолог для IT и стартапов</p>
-      <p class="hero-description" id="hero-description">
-        Помогаю продуктам расти через <span class="highlight">аналитику</span>, 
-        <span class="highlight">эксперименты</span> и 
-        <span class="highlight">оптимизацию воронки</span>
-      </p>
-      <div class="cta-buttons">
-        <a href="https://github.com/helloitssup/helloitssup.github.io/raw/main/CV%20DVK.pdf" class="btn btn-primary" id="resume-btn">📄 Резюме</a>
-        <a href="https://t.me/sup_xz" class="btn btn-secondary">💬 Telegram</a>
-      </div>
-    </div>
-  </header>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title" id="about-title">Обо мне</h2>
-      <div class="about-content">
-        <p id="about-text">
-          Я — маркетолог с более чем четырёхлетним опытом работы в digital. 
-          Запускал и масштабировал проекты в EdTech, eCommerce и HoReCa. 
-          Эксперт в воронках, A/B-тестах, аналитике и привлечении клиентов. 
-          <strong>Работаю на результат: снижаю CPA, увеличиваю CR и ROI.</strong>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="cases">
-    <div class="container">
-      <h2 class="section-title" id="cases-title">Кейсы</h2>
-      <div class="cases-grid">
-        <div class="case-card">
-          <div class="case-category">EdTech</div>
-          <h3 class="case-title">SmallTalk Inc.</h3>
-          <ul class="metrics">
-            <li><span class="metric-icon">📉</span><span id="case1-metric1">Снижение CPA на 35%</span></li>
-            <li><span class="metric-icon">📈</span><span id="case1-metric2">Рост конверсии на 30%</span></li>
-            <li><span class="metric-icon">💡</span><span id="case1-metric3">+150% лидов через новые каналы</span></li>
-          </ul>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <span class="logo-text">SUP</span>
+                        <div class="logo-arrow"></div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#cases" class="active" data-en="Cases" data-ru="Кейсы">Кейсы</a></li>
+                    <li><a href="#contact" data-en="Contact" data-ru="Контакты">Контакты</a></li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
         </div>
-        
-        <div class="case-card">
-          <div class="case-category">HoReCa</div>
-          <h3 class="case-title">Hookah Place</h3>
-          <ul class="metrics">
-            <li><span class="metric-icon">🔁</span><span id="case2-metric1">Повторные визиты +60%</span></li>
-            <li><span class="metric-icon">💰</span><span id="case2-metric2">Средний чек +20%</span></li>
-            <li><span class="metric-icon">🤖</span><span id="case2-metric3">Автоматизация 80% процессов</span></li>
-          </ul>
-        </div>
-        
-        <div class="case-card">
-          <div class="case-category">D2C</div>
-          <h3 class="case-title">KOTUMONU</h3>
-          <ul class="metrics">
-            <li><span class="metric-icon">🚀</span><span id="case3-metric1">Запуск бренда с нуля</span></li>
-            <li><span class="metric-icon">📊</span><span id="case3-metric2">ROI +180%</span></li>
-            <li><span class="metric-icon">🎯</span><span id="case3-metric3">Рост конверсии +25%</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title" id="skills-title">Навыки и инструменты</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3 id="skill1-title">🧪 Методология</h3>
-          <ul class="skill-list">
-            <li id="skill1-item1">A/B и многофакторное тестирование</li>
-            <li id="skill1-item2">Growth Hacking</li>
-            <li id="skill1-item3">CRO (Conversion Rate Optimization)</li>
-            <li id="skill1-item4">Funnel Analysis</li>
-          </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 data-en="IT Marketing Specialist" data-ru="Маркетолог для IT">Маркетолог для IT</h1>
+            <p class="hero-subtitle" data-en="I increase conversions, reduce CPA and scale products. 3+ years of digital marketing experience focused on results." data-ru="Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 3+ года опыта в digital-маркетинге с фокусом на результат.">
+                Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 
+                3+ года опыта в digital-маркетинге с фокусом на результат.
+            </p>
+            <a href="#contact" class="cta-button" data-en="Get in Touch" data-ru="Связаться">
+                <span data-en="Get in Touch" data-ru="Связаться">Связаться</span>
+                <span>→</span>
+            </a>
         </div>
-        
-        <div class="skill-category">
-          <h3 id="skill2-title">📊 Аналитика</h3>
-          <ul class="skill-list">
-            <li id="skill2-item1">Google Analytics 4</li>
-            <li id="skill2-item2">Яндекс.Метрика</li>
-            <li id="skill2-item3">Amplitude</li>
-            <li id="skill2-item4">Tableau, Power BI</li>
-          </ul>
-        </div>
-        
-        <div class="skill-category">
-          <h3 id="skill3-title">🚀 Каналы привлечения</h3>
-          <ul class="skill-list">
-            <li id="skill3-item1">Google Ads, Яндекс.Директ</li>
-            <li id="skill3-item2">Facebook/Meta Ads</li>
-            <li id="skill3-item3">Email & SMS маркетинг</li>
-            <li id="skill3-item4">SEO/SEM</li>
-          </ul>
-        </div>
-        
-        <div class="skill-category">
-          <h3 id="skill4-title">⚙️ Автоматизация</h3>
-          <ul class="skill-list">
-            <li id="skill4-item1">Telegram-боты</li>
-            <li id="skill4-item2">CRM интеграции</li>
-            <li id="skill4-item3">Zapier, Make.com</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <h2 id="contact-title">Готов к сотрудничеству</h2>
-      <p id="contact-subtitle">Свяжитесь со мной для обсуждения вашего проекта</p>
-      <div class="contact-info">
-        <a href="https://t.me/sup_xz" class="contact-item">
-          <span class="contact-icon">💬</span>
-          <span>Telegram</span>
-        </a>
-        <a href="mailto:deduhinv@gmail.com" class="contact-item">
-          <span class="contact-icon">📧</span>
-          <span>deduhinv@gmail.com</span>
-        </a>
-        <a href="https://github.com/helloitssup/helloitssup.github.io/raw/main/CV%20DVK.pdf" class="contact-item" id="cv-link">
-          <span class="contact-icon">📄</span>
-          <span>Скачать резюме</span>
-        </a>
-      </div>
-    </div>
-  </footer>
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label" data-en="years experience" data-ru="года опыта">года опыта</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">150%</div>
+                    <div class="stat-label" data-en="leads growth" data-ru="рост лидов">рост лидов</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35%</div>
+                    <div class="stat-label" data-en="CPA reduction" data-ru="снижение CPA">снижение CPA</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">180%</div>
+                    <div class="stat-label" data-en="ROI growth" data-ru="рост ROI">рост ROI</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    const translations = {
-      ru: {
-        'hero-title': 'Виталий Дедюхин',
-        'hero-subtitle': 'Digital-маркетолог для IT и стартапов',
-        'hero-description': 'Помогаю продуктам расти через <span class="highlight">аналитику</span>, <span class="highlight">эксперименты</span> и <span class="highlight">оптимизацию воронки</span>',
-        'resume-btn': '📄 Резюме',
-        'about-title': 'Обо мне',
-        'about-text': 'Я — маркетолог с более чем четырёхлетним опытом работы в digital. Запускал и масштабировал проекты в EdTech, eCommerce и HoReCa. Эксперт в воронках, A/B-тестах, аналитике и привлечении клиентов. <strong>Работаю на результат: снижаю CPA, увеличиваю CR и ROI.</strong>',
-        'cases-title': 'Кейсы',
-        'skills-title': 'Навыки и инструменты',
-        'contact-title': 'Готов к сотрудничеству',
-        'contact-subtitle': 'Свяжитесь со мной для обсуждения вашего проекта',
-        'cv-link': 'Скачать резюме',
-        // Cases
-        'case1-metric1': 'Снижение CPA на 35%',
-        'case1-metric2': 'Рост конверсии на 30%',
-        'case1-metric3': '+150% лидов через новые каналы',
-        'case2-metric1': 'Повторные визиты +60%',
-        'case2-metric2': 'Средний чек +20%',
-        'case2-metric3': 'Автоматизация 80% процессов',
-        'case3-metric1': 'Запуск бренда с нуля',
-        'case3-metric2': 'ROI +180%',
-        'case3-metric3': 'Рост конверсии +25%',
-        // Skills
-        'skill1-title': '🧪 Методология',
-        'skill1-item1': 'A/B и многофакторное тестирование',
-        'skill1-item2': 'Growth Hacking',
-        'skill1-item3': 'CRO (Conversion Rate Optimization)',
-        'skill1-item4': 'Funnel Analysis',
-        'skill2-title': '📊 Аналитика',
-        'skill2-item1': 'Google Analytics 4',
-        'skill2-item2': 'Яндекс.Метрика',
-        'skill2-item3': 'Amplitude',
-        'skill2-item4': 'Tableau, Power BI',
-        'skill3-title': '🚀 Каналы привлечения',
-        'skill3-item1': 'Google Ads, Яндекс.Директ',
-        'skill3-item2': 'Facebook/Meta Ads',
-        'skill3-item3': 'Email & SMS маркетинг',
-        'skill3-item4': 'SEO/SEM',
-        'skill4-title': '⚙️ Автоматизация',
-        'skill4-item1': 'Telegram-боты',
-        'skill4-item2': 'CRM интеграции',
-        'skill4-item3': 'Zapier, Make.com',
-      },
-      en: {
-        'hero-title': 'Vitaly Dedyukhin',
-        'hero-subtitle': 'Digital Marketer for IT & Startups',
-        'hero-description': 'Helping products grow through <span class="highlight">analytics</span>, <span class="highlight">experiments</span> and <span class="highlight">funnel optimization</span>',
-        'resume-btn': '📄 Resume',
-        'about-title': 'About Me',
-        'about-text': 'I am a marketer with over four years of experience in digital. Launched and scaled projects in EdTech, eCommerce and HoReCa. Expert in funnels, A/B testing, analytics and customer acquisition. <strong>Results-oriented: reducing CPA, increasing CR and ROI.</strong>',
-        'cases-title': 'Case Studies',
-        'skills-title': 'Skills & Tools',
-        'contact-title': 'Ready to Collaborate',
-        'contact-subtitle': 'Contact me to discuss your project',
-        'cv-link': 'Download CV',
-        // Cases
-        'case1-metric1': 'CPA reduced by 35%',
-        'case1-metric2': 'Conversion rate +30%',
-        'case1-metric3': '+150% leads via new channels',
-        'case2-metric1': 'Repeat visits +60%',
-        'case2-metric2': 'Average check +20%',
-        'case2-metric3': '80% process automation',
-        'case3-metric1': 'Brand launch from scratch',
-        'case3-metric2': 'ROI +180%',
-        'case3-metric3': 'Conversion growth +25%',
-        // Skills
-        'skill1-title': '🧪 Methodology',
-        'skill1-item1': 'A/B and multivariate testing',
-        'skill1-item2': 'Growth Hacking',
-        'skill1-item3': 'CRO (Conversion Rate Optimization)',
-        'skill1-item4': 'Funnel Analysis',
-        'skill2-title': '📊 Analytics',
-        'skill2-item1': 'Google Analytics 4',
-        'skill2-item2': 'Yandex.Metrica',
-        'skill2-item3': 'Amplitude',
-        'skill2-item4': 'Tableau, Power BI',
-        'skill3-title': '🚀 Acquisition Channels',
-        'skill3-item1': 'Google Ads, Yandex.Direct',
-        'skill3-item2': 'Facebook/Meta Ads',
-        'skill3-item3': 'Email & SMS marketing',
-        'skill3-item4': 'SEO/SEM',
-        'skill4-title': '⚙️ Automation',
-        'skill4-item1': 'Telegram bots',
-        'skill4-item2': 'CRM integrations',
-        'skill4-item3': 'Zapier, Make.com',
-      }
-    };
+    <!-- Cases Section -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <h2 class="section-title" data-en="Case Studies" data-ru="Кейсы">Кейсы</h2>
+            <p class="section-subtitle" data-en="Real results from product work" data-ru="Реальные результаты работы с продуктами">Реальные результаты работы с продуктами</p>
+            
+            <div class="cases-grid">
+                <!-- Case 1: SmallTalk -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <h3 class="case-title" data-en="SmallTalk — Lead Growth & Cost Reduction" data-ru="SmallTalk — рост лидов и снижение затрат">SmallTalk — рост лидов и снижение затрат</h3>
+                        </div>
+                        <span class="case-period" data-en="3 years" data-ru="3 года">3 года</span>
+                    </div>
+                    
+                    <div class="case-task">
+                        <h4 data-en="Challenge" data-ru="Задача">Задача</h4>
+                        <p data-en="Increase registrations and reduce user acquisition costs." data-ru="Увеличить количество регистраций и снизить стоимость привлечения пользователей.">Увеличить количество регистраций и снизить стоимость привлечения пользователей.</p>
+                    </div>
+                    
+                    <div class="case-actions">
+                        <h4 data-en="What I did" data-ru="Что сделал">Что сделал</h4>
+                        <ul>
+                            <li data-en="Conducted funnel audit and launched A/B tests for landing pages" data-ru="Провел аудит воронки и запустил A/B-тесты лендингов">Провел аудит воронки и запустил A/B-тесты лендингов</li>
+                            <li data-en="Redesigned offers and creatives, performed audience segmentation" data-ru="Переработал офферы и креативы, провел сегментацию аудиторий">Переработал офферы и креативы, провел сегментацию аудиторий</li>
+                            <li data-en="Set up targeting for conference and accelerator participants" data-ru="Настроил таргет на участников профильных конференций и акселераторов">Настроил таргет на участников профильных конференций и акселераторов</li>
+                            <li data-en="Added webinars and Telegram channel (speaking club) to funnel" data-ru="Добавил вебинары и Telegram-канал (speaking club) в воронку">Добавил вебинары и Telegram-канал (speaking club) в воронку</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tools">
+                        <h4 data-en="Tools" data-ru="Инструменты">Инструменты</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">Facebook Ads</span>
+                            <span class="tool-tag">Google Ads</span>
+                            <span class="tool-tag">Amplitude</span>
+                            <span class="tool-tag">Google Analytics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case-results">
+                        <h4 data-en="Results over 3 years" data-ru="Результат за 3 года">Результат за 3 года</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value">↓35%</div>
+                                <div class="result-metric">CPA</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">↑30%</div>
+                                <div class="result-metric" data-en="Conversion" data-ru="Конверсия">Конверсия</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">↑150%</div>
+                                <div class="result-metric" data-en="Leads" data-ru="Лиды">Лиды</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    function switchLang(lang) {
-      // Update button states
-      document.getElementById('ru-btn').classList.toggle('active', lang === 'ru');
-      document.getElementById('en-btn').classList.toggle('active', lang === 'en');
-      
-      // Update content
-      Object.entries(translations[lang]).forEach(([id, text]) => {
-        const element = document.getElementById(id);
-        if (element) {
-          if (id.includes('description')) {
-            element.innerHTML = text;
-          } else {
-            element.innerHTML = text;
-          }
-        }
-      });
-    }
-  </script>
+                <!-- Case 2: Hookah Place -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <h3 class="case-title" data-en="Hookah Place — Repeat Visits & Average Check Growth" data-ru="Hookah Place — повторные визиты и рост среднего чека">Hookah Place — повторные визиты и рост среднего чека</h3>
+                        </div>
+                        <span class="case-period" data-en="6 months" data-ru="6 месяцев">6 месяцев</span>
+                    </div>
+                    
+                    <div class="case-task">
+                        <h4 data-en="Challenge" data-ru="Задача">Задача</h4>
+                        <p data-en="Increase traffic, customer LTV and overall venue revenue." data-ru="Увеличить трафик, LTV клиентов и общую выручку заведения.">Увеличить трафик, LTV клиентов и общую выручку заведения.</p>
+                    </div>
+                    
+                    <div class="case-actions">
+                        <h4 data-en="What I did" data-ru="Что сделал">Что сделал</h4>
+                        <ul>
+                            <li data-en="Redesigned website and online booking system" data-ru="Переработал сайт и систему онлайн-бронирования">Переработал сайт и систему онлайн-бронирования</li>
+                            <li data-en="Updated map listings (visuals, offers, CTAs)" data-ru="Обновил карточку на картах (визуал, оффер, CTA)">Обновил карточку на картах (визуал, оффер, CTA)</li>
+                            <li data-en="Built financial model and goal achievement plan" data-ru="Построил финмодель и план по достижению целей">Построил финмодель и план по достижению целей</li>
+                            <li data-en="Implemented gamified loyalty system" data-ru="Внедрил геймифицированную систему лояльности">Внедрил геймифицированную систему лояльности</li>
+                            <li data-en="Set up upsell system and repeat visit motivation" data-ru="Настроил систему апсейлов и мотивации на повторные визиты">Настроил систему апсейлов и мотивации на повторные визиты</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-results">
+                        <h4 data-en="Results over 6 months" data-ru="Результат за 6 месяцев">Результат за 6 месяцев</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value">11М ₽</div>
+                                <div class="result-metric" data-en="Digital Revenue" data-ru="Digital выручка">Digital выручка</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">60%</div>
+                                <div class="result-metric" data-en="Return after 1st visit" data-ru="Возврат после 1 визита">Возврат после 1 визита</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">↑20%</div>
+                                <div class="result-metric" data-en="Average Check" data-ru="Средний чек">Средний чек</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: KOTUMONU -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <h3 class="case-title">KOTUMONU — запуск бренда с нуля и рост ROI</h3>
+                        </div>
+                        <span class="case-period">1 год</span>
+                    </div>
+                    
+                    <div class="case-task">
+                        <h4>Задача</h4>
+                        <p>Создать бренд с нуля и запустить продажи в условиях ограниченного бюджета.</p>
+                    </div>
+                    
+                    <div class="case-actions">
+                        <h4>Что сделал</h4>
+                        <ul>
+                            <li>Разработал УТП, бренд, сайт и стратегию продвижения</li>
+                            <li>Настроил воронку продаж и сквозную аналитику</li>
+                            <li>Запустил рекламу: Google Ads, Facebook Ads, Telegram-каналы</li>
+                            <li>Работал с инфлюенсерами (Лиза Гончарова и локальные блогеры)</li>
+                            <li>Адаптировал финмодель под логистику и валютные ограничения</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tools">
+                        <h4>Инструменты</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">Google Ads</span>
+                            <span class="tool-tag">Facebook Ads</span>
+                            <span class="tool-tag">Telegram Ads</span>
+                            <span class="tool-tag">Influencer Marketing</span>
+                            <span class="tool-tag">Notion</span>
+                            <span class="tool-tag">Trello</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case-results">
+                        <h4>Результат</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value">↑180%</div>
+                                <div class="result-metric">ROI</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">20%</div>
+                                <div class="result-metric">Конверсия в диалог</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4: Выстраивание маркетинга -->
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <h3 class="case-title">Выстраивание маркетинга с нуля</h3>
+                        </div>
+                        <span class="case-period">Универсальный подход</span>
+                    </div>
+                    
+                    <div class="case-task">
+                        <h4>Подход</h4>
+                        <p>Комплексное выстраивание маркетинговых процессов от исследования до масштабирования.</p>
+                    </div>
+                    
+                    <div class="case-actions">
+                        <h4>Этапы работы</h4>
+                        <ul>
+                            <li>Исследование рынка и сегментация целевой аудитории</li>
+                            <li>Создание позиционирования и бренд-идентичности</li>
+                            <li>Запуск сайта и настройка каналов привлечения</li>
+                            <li>Управление командой и подрядчиками</li>
+                            <li>Внедрение аналитики и систем планирования</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tools">
+                        <h4>Инструменты управления</h4>
+                        <div class="tools-list">
+                            <span class="tool-tag">Notion</span>
+                            <span class="tool-tag">Trello</span>
+                            <span class="tool-tag">Google Analytics</span>
+                            <span class="tool-tag">CRM системы</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case-results">
+                        <h4>Решаемые задачи</h4>
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value">DIY</div>
+                                <div class="result-metric">Ограниченный бюджет</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">ROI</div>
+                                <div class="result-metric">Фокус на результат</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title" data-en="Ready for New Challenges" data-ru="Готов к новым вызовам">Готов к новым вызовам</h2>
+                <p class="section-subtitle" data-en="Looking for a marketing position in an IT company where I can apply my experience to grow the product and team." data-ru="Ищу позицию маркетолога в IT-компании, где смогу применить опыт для роста продукта и команды.">
+                    Ищу позицию маркетолога в IT-компании, где смогу применить опыт 
+                    для роста продукта и команды.
+                </p>
+                
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com" class="contact-link">
+                        <span>📧</span>
+                        Email
+                    </a>
+                    <a href="https://t.me/yourusername" class="contact-link">
+                        <span>💬</span>
+                        Telegram
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">
+                        <span>💼</span>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SUP Portfolio. Создано для поиска работы в IT.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update active navigation link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add hover effects to case cards
+        document.querySelectorAll('.case-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
