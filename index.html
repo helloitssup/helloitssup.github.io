@@ -1,37 +1,744 @@
-<script>
-        // Language switching functionality
-        let currentLang = 'ru';
-        
-        const translations = {
-            ru: {
-                'IT Marketing Specialist': 'Маркетолог для IT',
-                'I increase conversions, reduce CPA and scale products. 4+ years of digital marketing experience focused on results.': 'Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 4+ года опыта в digital-маркетинге с фокусом на результат.',
-                'Get in Touch': 'Связаться',
-                'Cases': 'Кейсы',
-                'Contact': 'Контакты',
-                'years experience': 'года опыта',
-                'leads growth': 'рост лидов',
-                'CPA reduction': 'снижение CPA',
-                'ROI growth': 'рост ROI',
-                'Case Studies': 'Кейсы',
-                'Real results from product work': 'Реальные результаты работы с продуктами',
-                'Ready for New Challenges': 'Готов к новым вызовам',
-                'Looking for a marketing position in an IT company where I can apply my experience to grow the product and team.': 'Ищу позицию маркетолога в IT-компании, где смогу применить опыт для роста продукта и команды.'
-            },
-            en: {
-                'Маркетолог для IT': 'IT Marketing Specialist',
-                'Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 4+ года опыта в digital-маркетинге с фокусом на результат.': 'I increase conversions, reduce CPA and scale products. 4+ years of digital marketing experience focused on results.',
-                'Связаться': 'Get in Touch',
-                'Кейсы': 'Cases',
-                'Контакты': 'Contact',
-                'года опыта': 'years experience',
-                'рост лидов': 'leads growth',
-                'снижение CPA': 'CPA reduction',
-                'рост ROI': 'ROI growth',
-                'Реальные результаты работы с продуктами': 'Real results from product work',
-                'Готов к новым вызовам': 'Ready for New Challenges',<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Маркетолог - Портфолио</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+.logo-1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-2 {
+            font-size: 24px;
+            font-weight: 700;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #333;
+            color: #999;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .instagram-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #e1306c 0%, #fd1d1d 50%, #f77737 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(225, 48, 108, 0.4);
+        }
+
+        .instagram-icon, .telegram-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Instagram Slider */
+        .instagram-slider {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #111;
+            height: 400px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .insta-icon {
+            width: 16px;
+            height: 16px;
+            fill: #e1306c;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav.prev {
+            left: 20px;
+        }
+
+        .slider-nav.next {
+            right: 20px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            color: #cccccc;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Cases Section */
+        .cases {
+            padding: 120px 0;
+            background: #0a0a0a;
+        }
+
+        .cases-grid {
+            display: grid;
+            gap: 80px;
+            margin-top: 60px;
+        }
+
+        .case-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .case-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .case-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .case-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .case-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .case-period {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .case-description {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .case-chart {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 20px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-chart:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-legend {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .legend-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            margin-right: 8px;
+            border-radius: 2px;
+        }
+
+        .case-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .case-section h4 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-section ul {
+            list-style: none;
+            color: #cccccc;
+        }
+
+        .case-section li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .case-section li:last-child {
+            border-bottom: none;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            background: rgba(102, 126, 234, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .result-item:hover {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .case-insight {
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 16px;
+            border-left: 4px solid #667eea;
+        }
+
+        .case-insight h4 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .case-insight p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        .contact .cta-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            display: inline-flex;
+            width: auto;
+            min-width: 200px;
+            max-width: 300px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .contact .cta-btn {
+                min-width: 180px;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact .cta-btn {
+                min-width: 160px;
+                max-width: 200px;
+                padding: 10px 20px;
+                font-size: 15px;
+            }
+        }
+
+        /* Chart Animations */
+        .chart-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 2s ease-in-out forwards;
+        }
+
+        .chart-bar {
+            transform: scaleY(0);
+            transform-origin: bottom;
+            animation: growBar 1.5s ease-in-out forwards;
+        }
+
+        .chart-point {
+            opacity: 0;
+            animation: fadeInPoint 0.5s ease-in-out forwards;
+        }
+
+        @keyframes drawLine {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes growBar {
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes fadeInPoint {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hover effects for interactive charts */
+        .chart-element:hover {
+            filter: brightness(1.2);
+            cursor: pointer;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-links {
+                justify-content: center;
+            }
+
+            .cta-btn, .instagram-btn {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
+
+            .case-header {
+                grid-template-columns: 1fr;
+            }
+
+            .case-details {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .instagram-slider {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-btn, .instagram-btn {
+                width: 100%;
+                justify-content: center;
+                max-width: 280px;
+            }
+
+            .case-item {
+                padding: 24px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
 <!-- FAVICON -->
 <link rel="icon" type="image/png" href="/favicon.png">
     <!-- Yandex.Metrika counter -->
@@ -84,635 +791,20 @@
             "autocapture":true
         });
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUP - Marketing Portfolio</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23252525'/><text x='15' y='75' font-family='system-ui' font-size='45' font-weight='bold' fill='%23f5f5f5'>SUP</text><polygon points='75,25 85,35 75,45 70,40 77,33 70,26' fill='%2300d4d4'/></svg>">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-bg: #1a1a1a;
-            --secondary-bg: #252525;
-            --accent-color: #00d4d4;
-            --text-primary: #f5f5f5;
-            --text-secondary: #b0b0b0;
-            --card-bg: #2a2a2a;
-            --border-color: #404040;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--secondary-bg);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-text {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-        }
-
-        .logo-arrow {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-bottom: 8px solid var(--accent-color);
-            transform: rotate(45deg);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color);
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            margin-left: 1rem;
-        }
-
-        .lang-btn {
-            padding: 0.5rem 1rem;
-            background: transparent;
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn.active {
-            background: var(--accent-color);
-            color: var(--primary-bg);
-            border-color: var(--accent-color);
-        }
-
-        .lang-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-color) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-color);
-            color: --primary-bg;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            background: #00b8b8;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 212, 0.3);
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 4rem 0;
-            background: var(--secondary-bg);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-card {
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Cases Section */
-        .cases {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 4rem;
-            font-size: 1.1rem;
-        }
-
-        .cases-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .case-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-color), #00b8b8);
-        }
-
-        .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .case-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .case-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .case-period {
-            background: rgba(0, 212, 212, 0.1);
-            color: var(--accent-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .case-task {
-            background: var(--primary-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .case-task h4 {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .case-actions {
-            margin-bottom: 2rem;
-        }
-
-        .case-actions h4 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-
-        .case-actions ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .case-actions li {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .case-actions li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .case-tools {
-            margin-bottom: 2rem;
-        }
-
-        .tools-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tool-tag {
-            background: rgba(0, 212, 212, 0.1);
-            color: var(--accent-color);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 212, 212, 0.2);
-        }
-
-        .case-results {
-            background: var(--primary-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .result-item {
-            text-align: center;
-        }
-
-        .result-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.25rem;
-        }
-
-        .result-metric {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 0;
-            background: var(--secondary-bg);
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 1rem 1.5rem;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav {
-                justify-content: space-between;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--primary-bg);
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                padding-top: 2rem;
-                transition: left 0.3s ease;
-                border-top: 1px solid var(--border-color);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 1rem 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-            }
-
-            .lang-switcher {
-                margin-left: 0;
-                margin-top: 2rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 6rem 0 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                padding: 0 1rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .stat-card {
-                padding: 1.5rem;
-            }
-
-            .case-card {
-                padding: 1.5rem;
-                margin: 0 0.5rem;
-            }
-
-            .case-header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 1rem;
-            }
-
-            .case-period {
-                align-self: flex-start;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-link {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-
-            .tools-list {
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .case-card {
-                padding: 1rem;
-                margin: 0;
-            }
-
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tools-list {
-                gap: 0.25rem;
-            }
-
-            .tool-tag {
-                font-size: 0.75rem;
-                padding: 0.2rem 0.5rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .case-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .case-card:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        .case-card:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        .case-card:nth-child(4) {
-            animation-delay: 0.3s;
-        }
-    </style>
-</head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">
-                    <div class="logo-icon">
-                        <span class="logo-text">SUP</span>
-                        <div class="logo-arrow"></div>
-                    </div>
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#cases" class="active" data-en="Cases" data-ru="Кейсы">Кейсы</a></li>
-                    <li><a href="#contact" data-en="Contact" data-ru="Контакты">Контакты</a></li>
-                    <div class="lang-switcher">
-                        <button class="lang-btn active" data-lang="ru">RU</button>
-                        <button class="lang-btn" data-lang="en">EN</button>
-                    </div>
-                </ul>
-                <button class="mobile-menu-btn">☰</button>
+<div>
+                    <span class="logo-1">SUP</span>
+                    <span class="logo-2">AGENCY</span>
+                </div>
+
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -720,245 +812,398 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 data-en="IT Marketing Specialist" data-ru="Маркетолог для IT">Маркетолог для IT</h1>
-            <p class="hero-subtitle" data-en="I increase conversions, reduce CPA and scale products. 4+ years of digital marketing experience focused on results." data-ru="Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 4+ года опыта в digital-маркетинге с фокусом на результат.">
-                Увеличиваю конверсии, снижаю CPA и масштабирую продукты. 
-                4+ года опыта в digital-маркетинге с фокусом на результат.
-            </p>
-            <a href="#contact" class="cta-button" data-en="Get in Touch" data-ru="Связаться">
-                <span data-en="Get in Touch" data-ru="Связаться">Связаться</span>
-                <span>→</span>
-            </a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-name" data-ru="Виталий Дедюхин" data-en="Vitaly Dedyukhin">Виталий Дедюхин</div>
+                    <h1 data-ru="Маркетолог, который строит <span class='highlight'>воронки</span>, снижает <span class='highlight'>CAC</span> и растит <span class='highlight'>выручку</span>" 
+                        data-en="Marketer who builds <span class='highlight'>funnels</span>, reduces <span class='highlight'>CAC</span> and grows <span class='highlight'>revenue</span>">
+                        Маркетолог, который строит <span class="highlight">воронки</span>, снижает <span class="highlight">CAC</span> и растит <span class="highlight">выручку</span>
+                    </h1>
+                    <div class="hero-links">
+                        <a href="https://t.me/sup_xz" class="cta-btn">
+                            <svg class="telegram-icon" viewBox="0 0 24 24">
+                                <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.568 8.16c-.18 1.896-.96 6.504-1.356 8.628-.168.9-.504 1.2-.816 1.236-.696.06-1.224-.456-1.896-.9-1.056-.696-1.656-1.128-2.676-1.8-1.188-.78-.42-1.212.264-1.908.18-.18 3.252-2.976 3.312-3.228a.24.24 0 0 0-.06-.216c-.072-.06-.168-.036-.252-.024-.108.024-1.788 1.14-5.064 3.348-.48.336-.912.492-1.296.48-.432-.012-1.248-.24-1.86-.444-.756-.24-1.344-.372-1.296-.792.024-.216.324-.432.888-.66 3.504-1.524 5.832-2.532 6.996-3.012 3.336-1.416 4.032-1.668 4.476-1.68.096 0 .324.024.468.144.12.096.156.228.168.324-.012.072-.012.132-.024.18z"/>
+                            </svg>
+                            <span data-ru="Связаться в Telegram" data-en="Contact via Telegram">Связаться в Telegram</span>
+                        </a>
+                        <a href="https://instagram.com/hellosupik" target="_blank" class="instagram-btn">
+                            <svg class="instagram-icon" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            <span data-ru="Мой Instagram" data-en="My Instagram">Мой Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                 <div class="instagram-slider">
+                    <div class="slider-container">
+                        <div class="slide active" style="background-image: url('https://raw.githubusercontent.com/helloitssup/helloitssup.github.io/refs/heads/main/photo_2_2025-05-25_17-01-01.jpg');">
+                            <div class="slide-overlay">
+                                <div class="instagram-overlay">
+                                    <svg class="insta-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                                    </svg>
+                                    @hellosupik
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/helloitssup/helloitssup.github.io/refs/heads/main/photo_1_2025-05-25_17-01-01.jpg');">
+                            <div class="slide-overlay">
+                                <div class="instagram-overlay">
+                                    <svg class="insta-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                                    </svg>
+                                    @hellosupik
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/helloitssup/helloitssup.github.io/refs/heads/main/photo_2025-05-25_17-03-24.jpg');">
+                            <div class="slide-overlay">
+                                <div class="instagram-overlay">
+                                    <svg class="insta-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                                    </svg>
+                                    @hellosupik
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/helloitssup/helloitssup.github.io/refs/heads/main/photo_3_2025-05-25_17-01-01.jpg');">
+                            <div class="slide-overlay">
+                                <div class="instagram-overlay">
+                                    <svg class="insta-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.40s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"/>
+                                    </svg>
+                                    @hellosupik
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide" style="background-image: url('https://raw.githubusercontent.com/helloitssup/helloitssup.github.io/refs/heads/main/photo_4_2025-05-25_17-01-01.jpg');">
+                            <div class="slide-overlay">
+                                <div class="instagram-overlay">
+                                    <svg class="insta-icon" viewBox="0 0 24 24">
+                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    </svg>
+                                    @hellosupik
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-nav prev">‹</button>
+                    <button class="slider-nav next">›</button>
+                    <div class="slider-dots">
+                        <div class="dot active" data-slide="0"></div>
+                        <div class="dot" data-slide="1"></div>
+                        <div class="dot" data-slide="2"></div>
+                        <div class="dot" data-slide="3"></div>
+                        <div class="dot" data-slide="4"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
+    <!-- About Section -->
+    <section class="about">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">4+</div>
-                    <div class="stat-label" data-en="years experience" data-ru="года опыта">года опыта</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">150%</div>
-                    <div class="stat-label" data-en="leads growth" data-ru="рост лидов">рост лидов</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">35%</div>
-                    <div class="stat-label" data-en="CPA reduction" data-ru="снижение CPA">снижение CPA</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">180%</div>
-                    <div class="stat-label" data-en="ROI growth" data-ru="рост ROI">рост ROI</div>
+            <div class="about-content">
+                <h2 class="section-title" 
+                    data-ru="Обо мне" 
+                    data-en="About Me">
+                    Обо мне
+                </h2>
+                <p class="about-text" 
+                   data-ru="Я Виталий — digital-маркетолог с 5+ годами опыта. Запускал проекты с нуля, снижал стоимость привлечения, выстраивал воронки и рос в продажах. В прошлом — руководитель отдела продаж и собственник малого бизнеса. Умею работать с подрядчиками и брать на себя ответственность за результат." 
+                   data-en="I'm Vitaly — a digital marketer with over 5 years of experience. I’ve launched marketing from scratch, reduced CAC, increased conversions and worked closely with contractors. Previously, I led a sales team and ran a small business, which taught me ownership and structured thinking.">
+                    Я Виталий — digital-маркетолог с 5+ годами опыта. Запускал проекты с нуля, снижал стоимость привлечения, выстраивал воронки и рос в продажах. В прошлом — руководитель отдела продаж и собственник малого бизнеса. Умею работать с подрядчиками и брать на себя ответственность за результат.
+                </p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label" data-ru="Запусков с нуля" data-en="Launches from scratch">Запусков с нуля</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">x3</div>
+                        <div class="stat-label" data-ru="Рост продаж" data-en="Sales growth">Рост продаж</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">-40%</div>
+                        <div class="stat-label" data-ru="Снижение CAC" data-en="CAC reduction">Снижение CAC</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label" data-ru="Года в digital" data-en="Years in digital">Года в digital</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">60+</div>
+                        <div class="stat-label" data-ru="A/B-тестов" data-en="A/B tests">A/B-тестов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">x2</div>
+                        <div class="stat-label" data-ru="LTV > CAC" data-en="LTV > CAC">LTV > CAC</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Cases Section -->
-    <section class="cases" id="cases">
+    <section class="cases">
         <div class="container">
-            <h2 class="section-title" data-en="Case Studies" data-ru="Кейсы">Кейсы</h2>
-            <p class="section-subtitle" data-en="Real results from product work" data-ru="Реальные результаты работы с продуктами">Реальные результаты работы с продуктами</p>
-            
+            <h2 class="section-title" 
+                data-ru="Кейсы" 
+                data-en="Case Studies">
+                Кейсы
+            </h2>
             <div class="cases-grid">
-                <!-- Case 1: SmallTalk -->
-                <div class="case-card">
+                <!-- SmallTalk Case -->
+                <div class="case-item" id="case-smalltalk">
                     <div class="case-header">
-                        <div>
-                            <h3 class="case-title" data-en="SmallTalk — Lead Growth & Cost Reduction" data-ru="SmallTalk — рост лидов и снижение затрат">SmallTalk — рост лидов и снижение затрат</h3>
-                        </div>
-                        <span class="case-period" data-en="3 years" data-ru="3 года">3 года</span>
-                    </div>
-                    
-                    <div class="case-task">
-                        <h4 data-en="Challenge" data-ru="Задача">Задача</h4>
-                        <p data-en="Increase registrations and reduce user acquisition costs." data-ru="Увеличить количество регистраций и снизить стоимость привлечения пользователей.">Увеличить количество регистраций и снизить стоимость привлечения пользователей.</p>
-                    </div>
-                    
-                    <div class="case-actions">
-                        <h4 data-en="What I did" data-ru="Что сделал">Что сделал</h4>
-                        <ul>
-                            <li data-en="Conducted funnel audit and launched A/B tests for landing pages" data-ru="Провел аудит воронки и запустил A/B-тесты лендингов">Провел аудит воронки и запустил A/B-тесты лендингов</li>
-                            <li data-en="Redesigned offers and creatives, performed audience segmentation" data-ru="Переработал офферы и креативы, провел сегментацию аудиторий">Переработал офферы и креативы, провел сегментацию аудиторий</li>
-                            <li data-en="Set up targeting for conference and accelerator participants" data-ru="Настроил таргет на участников профильных конференций и акселераторов">Настроил таргет на участников профильных конференций и акселераторов</li>
-                            <li data-en="Added webinars and Telegram channel (speaking club) to funnel" data-ru="Добавил вебинары и Telegram-канал (speaking club) в воронку">Добавил вебинары и Telegram-канал (speaking club) в воронку</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-tools">
-                        <h4 data-en="Tools" data-ru="Инструменты">Инструменты</h4>
-                        <div class="tools-list">
-                            <span class="tool-tag">Facebook Ads</span>
-                            <span class="tool-tag">Google Ads</span>
-                            <span class="tool-tag">Amplitude</span>
-                            <span class="tool-tag">Google Analytics</span>
-                        </div>
-                    </div>
-                    
-                    <div class="case-results">
-                        <h4 data-en="Results over 3 years" data-ru="Результат за 3 года">Результат за 3 года</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-value">↓35%</div>
-                                <div class="result-metric">CPA</div>
+                        <div class="case-info">
+                            <div class="case-period" 
+                                 data-ru="8 месяцев" 
+                                 data-en="8 months">
+                                8 месяцев
                             </div>
-                            <div class="result-item">
-                                <div class="result-value">↑30%</div>
-                                <div class="result-metric" data-en="Conversion" data-ru="Конверсия">Конверсия</div>
+                            <h3>SmallTalk</h3>
+                            <p class="case-description" 
+                               data-ru="AI-продукт для изучения языков. Задача: увеличить регистрации и снизить стоимость лидов." 
+                               data-en="AI product for language learning. Goal: increase registrations and reduce lead costs.">
+                                AI-продукт для изучения языков. Задача: увеличить регистрации и снизить стоимость лидов.
+                            </p>
+                        </div>
+                        <div class="case-chart">
+                            <div class="chart-container">
+                                <svg class="chart-svg" id="smalltalk-chart">
+                                    <!-- Chart will be drawn here -->
+                                </svg>
                             </div>
-                            <div class="result-item">
-                                <div class="result-value">↑150%</div>
-                                <div class="result-metric" data-en="Leads" data-ru="Лиды">Лиды</div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #3b82f6;"></div>
+                                    <span data-ru="Продажи" data-en="Sales">Продажи</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #ef4444;"></div>
+                                    <span>CAC ($)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #10b981;"></div>
+                                    <span>CPL ($)</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="case-details">
+                        <div class="case-section">
+                            <h4 data-ru="Что сделал" data-en="What I Did">Что сделал</h4>
+                            <ul>
+                                <li data-ru="Настроил Facebook и Google Ads" data-en="Set up Facebook and Google Ads">Настроил Facebook и Google Ads</li>
+                                <li data-ru="Оптимизировал воронку регистрации" data-en="Optimized registration funnel">Оптимизировал воронку регистрации</li>
+                                <li data-ru="A/B тестировал креативы и таргетинг" data-en="A/B tested creatives and targeting">A/B тестировал креативы и таргетинг</li>
+                                <li data-ru="Внедрил email-маркетинг" data-en="Implemented email marketing">Внедрил email-маркетинг</li>
+                            </ul>
+                        </div>
+                        <div class="case-section">
+                            <h4 data-ru="Инструменты" data-en="Tools">Инструменты</h4>
+                            <ul>
+                                <li>Facebook Ads Manager</li>
+                                <li>Google Ads</li>
+                                <li>Google Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-value">$1.60</div>
+                            <div class="result-label">CPL (было $3.85)</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">$36</div>
+                            <div class="result-label">CAC (было $102.50)</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">5.5%</div>
+                            <div class="result-label" data-ru="Конверсия" data-en="Conversion">Конверсия</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">45-50</div>
+                            <div class="result-label" data-ru="продаж/мес" data-en="sales/month">продаж/мес</div>
+                        </div>
+                    </div>
+                    <div class="case-insight">
+                        <h4 data-ru="Ключевой инсайт" data-en="Key Insight">Ключевой инсайт</h4>
+                        <p data-ru="Правильная настройка событий конверсии и глубокая сегментация аудитории позволили снизить CAC в 3 раза при росте качества лидов." 
+                           data-en="Proper conversion event setup and deep audience segmentation reduced CAC by 3x while improving lead quality.">
+                            Правильная настройка событий конверсии и глубокая сегментация аудитории позволили снизить CAC в 3 раза при росте качества лидов.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Case 2: Hookah Place -->
-                <div class="case-card">
+                <!-- KOTUMONU Case -->
+                <div class="case-item" id="case-kotumonu">
                     <div class="case-header">
-                        <div>
-                            <h3 class="case-title" data-en="Hookah Place — Repeat Visits & Average Check Growth" data-ru="Hookah Place — повторные визиты и рост среднего чека">Hookah Place — повторные визиты и рост среднего чека</h3>
+                        <div class="case-info">
+                            <div class="case-period" 
+                                 data-ru="4 недели" 
+                                 data-en="4 weeks">
+                                4 недели
+                            </div>
+                            <h3>KOTUMONU</h3>
+                            <p class="case-description" 
+                               data-ru="Fashion-бренд в Черногории. Задача: создать и запустить бренд одежды с нуля." 
+                               data-en="Fashion brand in Montenegro. Goal: create and launch clothing brand from scratch.">
+                                Fashion-бренд в Черногории. Задача: создать и запустить бренд одежды с нуля.
+                            </p>
                         </div>
-                        <span class="case-period" data-en="6 months" data-ru="6 месяцев">6 месяцев</span>
-                    </div>
-                    
-                    <div class="case-task">
-                        <h4 data-en="Challenge" data-ru="Задача">Задача</h4>
-                        <p data-en="Increase traffic, customer LTV and overall venue revenue." data-ru="Увеличить трафик, LTV клиентов и общую выручку заведения.">Увеличить трафик, LTV клиентов и общую выручку заведения.</p>
-                    </div>
-                    
-                    <div class="case-actions">
-                        <h4 data-en="What I did" data-ru="Что сделал">Что сделал</h4>
-                        <ul>
-                            <li data-en="Redesigned website and online booking system" data-ru="Переработал сайт и систему онлайн-бронирования">Переработал сайт и систему онлайн-бронирования</li>
-                            <li data-en="Updated map listings (visuals, offers, CTAs)" data-ru="Обновил карточку на картах (визуал, оффер, CTA)">Обновил карточку на картах (визуал, оффер, CTA)</li>
-                            <li data-en="Built financial model and goal achievement plan" data-ru="Построил финмодель и план по достижению целей">Построил финмодель и план по достижению целей</li>
-                            <li data-en="Implemented gamified loyalty system" data-ru="Внедрил геймифицированную систему лояльности">Внедрил геймифицированную систему лояльности</li>
-                            <li data-en="Set up upsell system and repeat visit motivation" data-ru="Настроил систему апсейлов и мотивации на повторные визиты">Настроил систему апсейлов и мотивации на повторные визиты</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-results">
-                        <h4 data-en="Results over 6 months" data-ru="Результат за 6 месяцев">Результат за 6 месяцев</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-value">11М ₽</div>
-                                <div class="result-metric" data-en="Digital Revenue" data-ru="Digital выручка">Digital выручка</div>
+                        <div class="case-chart">
+                            <div class="chart-container">
+                                <svg class="chart-svg" id="kotumonu-chart">
+                                    <!-- Chart will be drawn here -->
+                                </svg>
                             </div>
-                            <div class="result-item">
-                                <div class="result-value">60%</div>
-                                <div class="result-metric" data-en="Return after 1st visit" data-ru="Возврат после 1 визита">Возврат после 1 визита</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-value">↑20%</div>
-                                <div class="result-metric" data-en="Average Check" data-ru="Средний чек">Средний чек</div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #3b82f6;"></div>
+                                    <span data-ru="Охват" data-en="Reach">Охват</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #f97316;"></div>
+                                    <span data-ru="Вовлечённость" data-en="Engagement">Вовлечённость</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #8b5cf6;"></div>
+                                    <span data-ru="Лиды" data-en="Leads">Лиды</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="case-details">
+                        <div class="case-section">
+                            <h4 data-ru="Что сделал" data-en="What I Did">Что сделал</h4>
+                            <ul>
+                                <li data-ru="Создал стратегию запуска бренда" data-en="Created brand launch strategy">Создал стратегию запуска бренда</li>
+                                <li data-ru="Настроил Instagram и Facebook рекламу" data-en="Set up Instagram and Facebook ads">Настроил Instagram и Facebook рекламу</li>
+                                <li data-ru="Запустил influencer-кампании" data-en="Launched influencer campaigns">Запустил influencer-кампании</li>
+                                <li data-ru="Оптимизировал конверсию сайта" data-en="Optimized website conversion">Оптимизировал конверсию сайта</li>
+                            </ul>
+                        </div>
+                        <div class="case-section">
+                            <h4 data-ru="Инструменты" data-en="Tools">Инструменты</h4>
+                            <ul>
+                                <li>Instagram Business</li>
+                                <li>Facebook Ads</li>
+                                <li>Influencer Marketing</li>
+                                <li>Shopify</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-value">100+</div>
+                            <div class="result-label" data-ru="лидов" data-en="leads">лидов</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">155K</div>
+                            <div class="result-label" data-ru="охват" data-en="reach">охват</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">47K</div>
+                            <div class="result-label" data-ru="вовлечений" data-en="engagements">вовлечений</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">100%</div>
+                            <div class="result-label">Out of Stock</div>
+                        </div>
+                    </div>
+                    <div class="case-insight">
+                        <h4 data-ru="Ключевой инсайт" data-en="Key Insight">Ключевой инсайт</h4>
+                        <p data-ru="Комбинация качественного контента, локальных инфлюенсеров и точного таргетинга позволила быстро создать хайп вокруг нового бренда." 
+                           data-en="Combination of quality content, local influencers and precise targeting quickly created hype around the new brand.">
+                            Комбинация качественного контента, локальных инфлюенсеров и точного таргетинга позволила быстро создать хайп вокруг нового бренда.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Case 3: KOTUMONU -->
-                <div class="case-card">
+                <!-- Hookah Place Case -->
+                <div class="case-item" id="case-hookah">
                     <div class="case-header">
-                        <div>
-                            <h3 class="case-title">KOTUMONU — запуск бренда с нуля и рост ROI</h3>
-                        </div>
-                        <span class="case-period">1 год</span>
-                    </div>
-                    
-                    <div class="case-task">
-                        <h4>Задача</h4>
-                        <p>Создать бренд с нуля и запустить продажи в условиях ограниченного бюджета.</p>
-                    </div>
-                    
-                    <div class="case-actions">
-                        <h4>Что сделал</h4>
-                        <ul>
-                            <li>Разработал УТП, бренд, сайт и стратегию продвижения</li>
-                            <li>Настроил воронку продаж и сквозную аналитику</li>
-                            <li>Запустил рекламу: Google Ads, Facebook Ads, Telegram-каналы</li>
-                            <li>Работал с инфлюенсерами (Лиза Гончарова и локальные блогеры)</li>
-                            <li>Адаптировал финмодель под логистику и валютные ограничения</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-tools">
-                        <h4>Инструменты</h4>
-                        <div class="tools-list">
-                            <span class="tool-tag">Google Ads</span>
-                            <span class="tool-tag">Facebook Ads</span>
-                            <span class="tool-tag">Telegram Ads</span>
-                            <span class="tool-tag">Influencer Marketing</span>
-                            <span class="tool-tag">Notion</span>
-                            <span class="tool-tag">Trello</span>
-                        </div>
-                    </div>
-                    
-                    <div class="case-results">
-                        <h4>Результат</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-value">↑180%</div>
-                                <div class="result-metric">ROI</div>
+                        <div class="case-info">
+                            <div class="case-period" 
+                                 data-ru="7 месяцев" 
+                                 data-en="7 months">
+                                7 месяцев
                             </div>
-                            <div class="result-item">
-                                <div class="result-value">20%</div>
-                                <div class="result-metric">Конверсия в диалог</div>
+                            <h3>Hookah Place</h3>
+                            <p class="case-description" 
+                               data-ru="Локальная кальянная. Задача: увеличить выручку через Яндекс Карты и локальный трафик." 
+                               data-en="Local hookah lounge. Goal: increase revenue through Yandex Maps and local traffic.">
+                                Локальная кальянная. Задача: увеличить выручку через Яндекс Карты и локальный трафик.
+                            </p>
+                        </div>
+                        <div class="case-chart">
+                            <div class="chart-container">
+                                <svg class="chart-svg" id="hookah-chart">
+                                    <!-- Chart will be drawn here -->
+                                </svg>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #06b6d4;"></div>
+                                    <span data-ru="Посещения" data-en="Visits">Посещения</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #f97316;"></div>
+                                    <span data-ru="Отзывы" data-en="Reviews">Отзывы</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color" style="background: #10b981;"></div>
+                                    <span data-ru="Выручка (млн ₽)" data-en="Revenue (mln ₽)">Выручка (млн ₽)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Case 4: Выстраивание маркетинга -->
-                <div class="case-card">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">Выстраивание маркетинга с нуля</h3>
+                    <div class="case-details">
+                        <div class="case-section">
+                            <h4 data-ru="Что сделал" data-en="What I Did">Что сделал</h4>
+                            <ul>
+                                <li data-ru="Оптимизировал профиль в Яндекс Картах" data-en="Optimized Yandex Maps profile">Оптимизировал профиль в Яндекс Картах</li>
+                                <li data-ru="Настроил работу с отзывами" data-en="Set up review management">Настроил работу с отзывами</li>
+                                <li data-ru="Создал Telegram-бот для клиентов" data-en="Created Telegram bot for clients">Создал Telegram-бот для клиентов</li>
+                                <li data-ru="Запустил локальную рекламу" data-en="Launched local advertising">Запустил локальную рекламу</li>
+                            </ul>
                         </div>
-                        <span class="case-period">Универсальный подход</span>
-                    </div>
-                    
-                    <div class="case-task">
-                        <h4>Подход</h4>
-                        <p>Комплексное выстраивание маркетинговых процессов от исследования до масштабирования.</p>
-                    </div>
-                    
-                    <div class="case-actions">
-                        <h4>Этапы работы</h4>
-                        <ul>
-                            <li>Исследование рынка и сегментация целевой аудитории</li>
-                            <li>Создание позиционирования и бренд-идентичности</li>
-                            <li>Запуск сайта и настройка каналов привлечения</li>
-                            <li>Управление командой и подрядчиками</li>
-                            <li>Внедрение аналитики и систем планирования</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-tools">
-                        <h4>Инструменты управления</h4>
-                        <div class="tools-list">
-                            <span class="tool-tag">Notion</span>
-                            <span class="tool-tag">Trello</span>
-                            <span class="tool-tag">Google Analytics</span>
-                            <span class="tool-tag">CRM системы</span>
+                        <div class="case-section">
+                            <h4 data-ru="Инструменты" data-en="Tools">Инструменты</h4>
+                            <ul>
+                                <li>Яндекс Карты</li>
+                                <li>Яндекс Директ</li>
+                                <li>Telegram Bot</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="case-results">
-                        <h4>Решаемые задачи</h4>
-                        <div class="results-grid">
-                            <div class="result-item">
-                                <div class="result-value">DIY</div>
-                                <div class="result-metric">Ограниченный бюджет</div>
-                            </div>
-                            <div class="result-item">
-                                <div class="result-value">ROI</div>
-                                <div class="result-metric">Фокус на результат</div>
-                            </div>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-value">+10М ₽</div>
+                            <div class="result-label" data-ru="выручки" data-en="revenue">выручки</div>
                         </div>
+                        <div class="result-item">
+                            <div class="result-value">4x</div>
+                            <div class="result-label" data-ru="рост заказов" data-en="order growth">рост заказов</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">50+</div>
+                            <div class="result-label" data-ru="отзывов" data-en="reviews">отзывов</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">85%</div>
+                            <div class="result-label" data-ru="повторных визитов" data-en="repeat visits">повторных визитов</div>
+                        </div>
+                    </div>
+                    <div class="case-insight">
+                        <h4 data-ru="Ключевой инсайт" data-en="Key Insight">Ключевой инсайт</h4>
+                        <p data-ru="Локальный бизнес можно масштабировать через правильную работу с картами, отзывами и автоматизацией клиентского сервиса." 
+                           data-en="Local business can be scaled through proper work with maps, reviews and customer service automation.">
+                            Локальный бизнес можно масштабировать через правильную работу с картами, отзывами и автоматизацией клиентского сервиса.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -966,42 +1211,623 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact">
         <div class="container">
-            <div class="contact-content">
-                <h2 class="section-title" data-en="Ready for New Challenges" data-ru="Готов к новым вызовам">Готов к новым вызовам</h2>
-                <p class="section-subtitle" data-en="Looking for a marketing position in an IT company where I can apply my experience to grow the product and team." data-ru="Ищу позицию маркетолога в IT-компании, где смогу применить опыт для роста продукта и команды.">
-                    Ищу позицию маркетолога в IT-компании, где смогу применить опыт 
-                    для роста продукта и команды.
-                </p>
-                
-                <div class="contact-links">
-                    <a href="mailto:deduhinv@gmail.com" class="contact-link">
-                        <span>📧</span>
-                        Email
-                    </a>
-                    <a href="https://t.me/sup_xz" class="contact-link">
-                        <span>💬</span>
-                        Telegram
-                    </a>
-                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">
-                        <span>💼</span>
-                        LinkedIn
-                    </a>
-                </div>
-            </div>
+            <h2 data-ru="Готов обсудить проект?" data-en="Ready to discuss your project?">Готовы обсудить проект?</h2>
+            <p data-ru="Напишите в Telegram — обсудим задачу" data-en="Write to Telegram — let's discuss the task">Напишите в Telegram — обсудим задачу</p>
+            <a href="https://t.me/sup_xz" class="cta-btn">
+                <svg class="telegram-icon" viewBox="0 0 24 24">
+                    <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.568 8.16c-.18 1.896-.96 6.504-1.356 8.628-.168.9-.504 1.2-.816 1.236-.696.06-1.224-.456-1.896-.9-1.056-.696-1.656-1.128-2.676-1.8-1.188-.78-.42-1.212.264-1.908.18-.18 3.252-2.976 3.312-3.228a.24.24 0 0 0-.06-.216c-.072-.06-.168-.036-.252-.024-.108.024-1.788 1.14-5.064 3.348-.48.336-.912.492-1.296.48-.432-.012-1.248-.24-1.86-.444-.756-.24-1.344-.372-1.296-.792.024-.216.324-.432.888-.66 3.504-1.524 5.832-2.532 6.996-3.012 3.336-1.416 4.032-1.668 4.476-1.68.096 0 .324.024.468.144.12.096.156.228.168.324-.012.072-.012.132-.024.18z"/>
+                </svg>
+                <span data-ru="Написать в Telegram" data-en="Write to Telegram">Написать в Telegram</span>
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 SUP Portfolio. Создано для поиска работы в IT.</p>
-        </div>
-    </footer>
+    <div class="tooltip" id="tooltip"></div>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Language switching
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const elementsWithLang = document.querySelectorAll('[data-ru]');
+        
+        let currentLang = 'ru';
+        
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                if (lang === currentLang) return;
+                
+                currentLang = lang;
+                
+                // Update active button
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update content
+                elementsWithLang.forEach(el => {
+                    const text = el.dataset[lang];
+                    if (text) {
+                        el.innerHTML = text;
+                    }
+                });
+            });
+        });
+
+        // Instagram Slider
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.slider-nav.prev');
+        const nextBtn = document.querySelector('.slider-nav.next');
+        const dots = document.querySelectorAll('.dot');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-play slider
+        let sliderInterval = setInterval(nextSlide, 4000);
+        
+        // Manual controls
+        nextBtn.addEventListener('click', () => {
+            clearInterval(sliderInterval);
+            nextSlide();
+            sliderInterval = setInterval(nextSlide, 4000);
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            clearInterval(sliderInterval);
+            prevSlide();
+            sliderInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Dot controls
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(sliderInterval);
+                currentSlide = index;
+                showSlide(currentSlide);
+                sliderInterval = setInterval(nextSlide, 4000);
+            });
+        });
+        
+        // Pause on hover
+        const sliderContainer = document.querySelector('.instagram-slider');
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(sliderInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', () => {
+            sliderInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Chart Functions
+        function createSVGElement(tag, attributes = {}) {
+            const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+            Object.entries(attributes).forEach(([key, value]) => {
+                element.setAttribute(key, value);
+            });
+            return element;
+        }
+
+        function drawSmallTalkChart() {
+            const svg = document.getElementById('smalltalk-chart');
+            if (!svg) return;
+            
+            const width = 360;
+            const height = 260;
+            const padding = 40;
+            
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            svg.innerHTML = '';
+            
+            // Data
+            const months = [1, 2, 3, 4, 5, 6, 7, 8];
+            const sales = [2, 5, 10, 15, 20, 30, 40, 50];
+            const cac = [102, 90, 80, 70, 60, 50, 40, 36];
+            const cpl = [3.85, 3.2, 2.7, 2.3, 2.0, 1.8, 1.7, 1.6];
+            
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+            
+            // Scales
+            const xStep = chartWidth / (months.length - 1);
+            const maxSales = Math.max(...sales);
+            const maxCAC = Math.max(...cac);
+            const maxCPL = Math.max(...cpl);
+            
+            // Grid lines
+            for (let i = 0; i < months.length; i++) {
+                const x = padding + i * xStep;
+                const gridLine = createSVGElement('line', {
+                    x1: x, y1: padding,
+                    x2: x, y2: height - padding,
+                    stroke: '#333',
+                    'stroke-width': '0.5',
+                    opacity: '0.3'
+                });
+                svg.appendChild(gridLine);
+            }
+            
+            // Axes
+            const axisX = createSVGElement('line', {
+                x1: padding, y1: height - padding,
+                x2: width - padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            const axisY = createSVGElement('line', {
+                x1: padding, y1: padding,
+                x2: padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            svg.appendChild(axisX);
+            svg.appendChild(axisY);
+            
+            // Sales line (blue)
+            let salesPath = `M ${padding} ${height - padding - (sales[0] / maxSales) * chartHeight}`;
+            for (let i = 1; i < sales.length; i++) {
+                const x = padding + i * xStep;
+                const y = height - padding - (sales[i] / maxSales) * chartHeight;
+                salesPath += ` L ${x} ${y}`;
+            }
+            
+            const salesLine = createSVGElement('path', {
+                d: salesPath,
+                stroke: '#3b82f6',
+                'stroke-width': '3',
+                fill: 'none',
+                class: 'chart-line chart-element'
+            });
+            svg.appendChild(salesLine);
+            
+            // CAC line (red)
+            let cacPath = `M ${padding} ${height - padding - (cac[0] / maxCAC) * chartHeight}`;
+            for (let i = 1; i < cac.length; i++) {
+                const x = padding + i * xStep;
+                const y = height - padding - (cac[i] / maxCAC) * chartHeight;
+                cacPath += ` L ${x} ${y}`;
+            }
+            
+            const cacLine = createSVGElement('path', {
+                d: cacPath,
+                stroke: '#ef4444',
+                'stroke-width': '3',
+                fill: 'none',
+                class: 'chart-line chart-element'
+            });
+            svg.appendChild(cacLine);
+            
+            // CPL line (green)
+            let cplPath = `M ${padding} ${height - padding - (cpl[0] / maxCPL) * chartHeight}`;
+            for (let i = 1; i < cpl.length; i++) {
+                const x = padding + i * xStep;
+                const y = height - padding - (cpl[i] / maxCPL) * chartHeight;
+                cplPath += ` L ${x} ${y}`;
+            }
+            
+            const cplLine = createSVGElement('path', {
+                d: cplPath,
+                stroke: '#10b981',
+                'stroke-width': '3',
+                fill: 'none',
+                class: 'chart-line chart-element'
+            });
+            svg.appendChild(cplLine);
+            
+            // Points with hover effects
+            for (let i = 0; i < months.length; i++) {
+                const x = padding + i * xStep;
+                
+                // Sales point
+                const salesY = height - padding - (sales[i] / maxSales) * chartHeight;
+                const salesPoint = createSVGElement('circle', {
+                    cx: x, cy: salesY, r: '4',
+                    fill: '#3b82f6',
+                    class: 'chart-point chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${sales[i]} sales`
+                });
+                svg.appendChild(salesPoint);
+                
+                // CAC point
+                const cacY = height - padding - (cac[i] / maxCAC) * chartHeight;
+                const cacPoint = createSVGElement('circle', {
+                    cx: x, cy: cacY, r: '4',
+                    fill: '#ef4444',
+                    class: 'chart-point chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${cac[i]} CAC`
+                });
+                svg.appendChild(cacPoint);
+                
+                // CPL point
+                const cplY = height - padding - (cpl[i] / maxCPL) * chartHeight;
+                const cplPoint = createSVGElement('circle', {
+                    cx: x, cy: cplY, r: '4',
+                    fill: '#10b981',
+                    class: 'chart-point chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${cpl[i]} CPL`
+                });
+                svg.appendChild(cplPoint);
+                
+                // Month labels
+                const monthLabel = createSVGElement('text', {
+                    x: x, y: height - padding + 20,
+                    'text-anchor': 'middle',
+                    fill: '#999',
+                    'font-size': '12',
+                    'font-family': 'Inter'
+                });
+                monthLabel.textContent = months[i];
+                svg.appendChild(monthLabel);
+            }
+        }
+
+        function drawKotumonuChart() {
+            const svg = document.getElementById('kotumonu-chart');
+            if (!svg) return;
+            
+            const width = 360;
+            const height = 260;
+            const padding = 40;
+            
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            svg.innerHTML = '';
+            
+            // Data
+            const weeks = [1, 2, 3, 4];
+            const reach = [20000, 40000, 50000, 55200];
+            const engagement = [6000, 12000, 16000, 17200];
+            const leads = [20, 30, 25, 35];
+            
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+            
+            // Scales
+            const barWidth = chartWidth / weeks.length;
+            const maxReach = Math.max(...reach);
+            const maxEngagement = Math.max(...engagement);
+            const maxLeads = Math.max(...leads);
+            
+            // Grid lines
+            for (let i = 0; i <= weeks.length; i++) {
+                const x = padding + i * barWidth;
+                const gridLine = createSVGElement('line', {
+                    x1: x, y1: padding,
+                    x2: x, y2: height - padding,
+                    stroke: '#333',
+                    'stroke-width': '0.5',
+                    opacity: '0.3'
+                });
+                svg.appendChild(gridLine);
+            }
+            
+            // Axes
+            const axisX = createSVGElement('line', {
+                x1: padding, y1: height - padding,
+                x2: width - padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            const axisY = createSVGElement('line', {
+                x1: padding, y1: padding,
+                x2: padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            svg.appendChild(axisX);
+            svg.appendChild(axisY);
+            
+            // Bars
+            for (let i = 0; i < weeks.length; i++) {
+                const x = padding + i * barWidth;
+                
+                // Reach bars (blue)
+                const reachHeight = (reach[i] / maxReach) * chartHeight * 0.8;
+                const reachBar = createSVGElement('rect', {
+                    x: x + barWidth * 0.1,
+                    y: height - padding - reachHeight,
+                    width: barWidth * 0.25,
+                    height: reachHeight,
+                    fill: '#3b82f6',
+                    class: 'chart-bar chart-element',
+                    'data-tooltip': `Week ${weeks[i]}: ${reach[i].toLocaleString()} reach`
+                });
+                svg.appendChild(reachBar);
+                
+                // Engagement bars (orange)
+                const engagementHeight = (engagement[i] / maxEngagement) * chartHeight * 0.8;
+                const engagementBar = createSVGElement('rect', {
+                    x: x + barWidth * 0.37,
+                    y: height - padding - engagementHeight,
+                    width: barWidth * 0.25,
+                    height: engagementHeight,
+                    fill: '#f97316',
+                    class: 'chart-bar chart-element',
+                    'data-tooltip': `Week ${weeks[i]}: ${engagement[i].toLocaleString()} engagement`
+                });
+                svg.appendChild(engagementBar);
+                
+                // Leads line points (purple)
+                const leadsY = height - padding - (leads[i] / maxLeads) * chartHeight;
+                const leadsPoint = createSVGElement('circle', {
+                    cx: x + barWidth * 0.5,
+                    cy: leadsY,
+                    r: '6',
+                    fill: '#8b5cf6',
+                    class: 'chart-point chart-element',
+                    'data-tooltip': `Week ${weeks[i]}: ${leads[i]} leads`
+                });
+                svg.appendChild(leadsPoint);
+                
+                // Week labels
+                const weekLabel = createSVGElement('text', {
+                    x: x + barWidth * 0.5,
+                    y: height - padding + 20,
+                    'text-anchor': 'middle',
+                    fill: '#999',
+                    'font-size': '12',
+                    'font-family': 'Inter'
+                });
+                weekLabel.textContent = weeks[i];
+                svg.appendChild(weekLabel);
+            }
+            
+            // Connect leads points with line
+            let leadsPath = '';
+            for (let i = 0; i < leads.length; i++) {
+                const x = padding + i * barWidth + barWidth * 0.5;
+                const y = height - padding - (leads[i] / maxLeads) * chartHeight;
+                if (i === 0) {
+                    leadsPath += `M ${x} ${y}`;
+                } else {
+                    leadsPath += ` L ${x} ${y}`;
+                }
+            }
+            
+            const leadsLine = createSVGElement('path', {
+                d: leadsPath,
+                stroke: '#8b5cf6',
+                'stroke-width': '3',
+                fill: 'none',
+                class: 'chart-line'
+            });
+            svg.appendChild(leadsLine);
+        }
+
+        function drawHookahChart() {
+            const svg = document.getElementById('hookah-chart');
+            if (!svg) return;
+            
+            const width = 360;
+            const height = 260;
+            const padding = 40;
+            
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+            svg.innerHTML = '';
+            
+            // Data
+            const months = [1, 2, 3, 4, 5, 6, 7];
+            const visits = [200, 300, 450, 600, 800, 950, 1200];
+            const reviews = [5, 10, 15, 20, 25, 30, 35];
+            const revenue = [0.5, 1.5, 3.0, 4.5, 6.5, 8.5, 10.0];
+            
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+            
+            // Scales
+            const barWidth = chartWidth / months.length;
+            const maxVisits = Math.max(...visits);
+            const maxReviews = Math.max(...reviews);
+            const maxRevenue = Math.max(...revenue);
+            
+            // Grid lines
+            for (let i = 0; i <= months.length; i++) {
+                const x = padding + i * barWidth;
+                const gridLine = createSVGElement('line', {
+                    x1: x, y1: padding,
+                    x2: x, y2: height - padding,
+                    stroke: '#333',
+                    'stroke-width': '0.5',
+                    opacity: '0.3'
+                });
+                svg.appendChild(gridLine);
+            }
+            
+            // Axes
+            const axisX = createSVGElement('line', {
+                x1: padding, y1: height - padding,
+                x2: width - padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            const axisY = createSVGElement('line', {
+                x1: padding, y1: padding,
+                x2: padding, y2: height - padding,
+                stroke: '#555',
+                'stroke-width': '2'
+            });
+            svg.appendChild(axisX);
+            svg.appendChild(axisY);
+            
+            // Bars and revenue line
+            for (let i = 0; i < months.length; i++) {
+                const x = padding + i * barWidth;
+                
+                // Visits bars (cyan)
+                const visitsHeight = (visits[i] / maxVisits) * chartHeight * 0.7;
+                const visitsBar = createSVGElement('rect', {
+                    x: x + barWidth * 0.1,
+                    y: height - padding - visitsHeight,
+                    width: barWidth * 0.3,
+                    height: visitsHeight,
+                    fill: '#06b6d4',
+                    class: 'chart-bar chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${visits[i]} visits`
+                });
+                svg.appendChild(visitsBar);
+                
+                // Reviews bars (orange)
+                const reviewsHeight = (reviews[i] / maxReviews) * chartHeight * 0.7;
+                const reviewsBar = createSVGElement('rect', {
+                    x: x + barWidth * 0.5,
+                    y: height - padding - reviewsHeight,
+                    width: barWidth * 0.3,
+                    height: reviewsHeight,
+                    fill: '#f97316',
+                    class: 'chart-bar chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${reviews[i]} reviews`
+                });
+                svg.appendChild(reviewsBar);
+                
+                // Revenue line points (green)
+                const revenueY = height - padding - (revenue[i] / maxRevenue) * chartHeight;
+                const revenuePoint = createSVGElement('circle', {
+                    cx: x + barWidth * 0.5,
+                    cy: revenueY,
+                    r: '5',
+                    fill: '#10b981',
+                    class: 'chart-point chart-element',
+                    'data-tooltip': `Month ${months[i]}: ${revenue[i]}M ₽ revenue`
+                });
+                svg.appendChild(revenuePoint);
+                
+                // Month labels
+                const monthLabel = createSVGElement('text', {
+                    x: x + barWidth * 0.5,
+                    y: height - padding + 20,
+                    'text-anchor': 'middle',
+                    fill: '#999',
+                    'font-size': '12',
+                    'font-family': 'Inter'
+                });
+                monthLabel.textContent = months[i];
+                svg.appendChild(monthLabel);
+            }
+            
+            // Connect revenue points with line
+            let revenuePath = '';
+            for (let i = 0; i < revenue.length; i++) {
+                const x = padding + i * barWidth + barWidth * 0.5;
+                const y = height - padding - (revenue[i] / maxRevenue) * chartHeight;
+                if (i === 0) {
+                    revenuePath += `M ${x} ${y}`;
+                } else {
+                    revenuePath += ` L ${x} ${y}`;
+                }
+            }
+            
+            const revenueLine = createSVGElement('path', {
+                d: revenuePath,
+                stroke: '#10b981',
+                'stroke-width': '4',
+                fill: 'none',
+                class: 'chart-line'
+            });
+            svg.appendChild(revenueLine);
+        }
+
+        // Tooltip functionality
+        const tooltip = document.getElementById('tooltip');
+        
+        function showTooltip(e, text) {
+            tooltip.textContent = text;
+            tooltip.style.left = e.pageX + 10 + 'px';
+            tooltip.style.top = e.pageY - 10 + 'px';
+            tooltip.classList.add('visible');
+        }
+        
+        function hideTooltip() {
+            tooltip.classList.remove('visible');
+        }
+        
+        // Add event listeners for tooltips
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.hasAttribute('data-tooltip')) {
+                showTooltip(e, e.target.getAttribute('data-tooltip'));
+            }
+        });
+        
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.hasAttribute('data-tooltip')) {
+                hideTooltip();
+            }
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            if (tooltip.classList.contains('visible')) {
+                tooltip.style.left = e.pageX + 10 + 'px';
+                tooltip.style.top = e.pageY - 10 + 'px';
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Draw charts when case becomes visible
+                    setTimeout(() => {
+                        if (entry.target.id === 'case-smalltalk') {
+                            drawSmallTalkChart();
+                        } else if (entry.target.id === 'case-kotumonu') {
+                            drawKotumonuChart();
+                        } else if (entry.target.id === 'case-hookah') {
+                            drawHookahChart();
+                        }
+                    }, 300);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe case items
+        document.querySelectorAll('.case-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Observe stat items
+        document.querySelectorAll('.stat-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1015,36 +1841,52 @@
             });
         });
 
-        // Update active navigation link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
+        // Touch/swipe support for slider
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        sliderContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
             
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
+            if (Math.abs(diff) > swipeThreshold) {
+                clearInterval(sliderInterval);
+                
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
                 }
-            });
+                
+                sliderInterval = setInterval(nextSlide, 4000);
+            }
+        }
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                drawSmallTalkChart();
+                drawKotumonuChart();
+                drawHookahChart();
+            }, 500);
         });
 
-        // Add hover effects to case cards
-        document.querySelectorAll('.case-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+        // Redraw charts on window resize
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                drawSmallTalkChart();
+                drawKotumonuChart();
+                drawHookahChart();
+            }, 100);
         });
     </script>
 </body>
